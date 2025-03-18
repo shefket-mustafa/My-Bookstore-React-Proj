@@ -1,3 +1,5 @@
+import { Link } from "react-router";
+
 export default function Header() {
   return (
       <>
@@ -7,7 +9,7 @@ export default function Header() {
     <div className="header_bottom">
       <div className="container-fluid">
         <nav className="navbar navbar-expand-lg custom_nav-container ">
-          <a className="navbar-brand " href="index.html"> Bookstore </a>
+          <Link className="navbar-brand " to="/"> Bookstore </Link>
 
           <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span className=""> </span>
@@ -16,35 +18,35 @@ export default function Header() {
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
             <ul className="navbar-nav  ">
               <li className="nav-item active">
-                <a className="nav-link" href="index.html">Home <span className="sr-only">(current)</span></a>
+                <Link className="nav-link" to="/">Home <span className="sr-only">(current)</span></Link>
               </li>
               <li className="nav-item">
-                <a className="nav-link" href="about.html"> About</a>
+                <Link className="nav-link" to="/about"> About</Link>
               </li>
               <li className="nav-item">
-                <a className="nav-link" href="service.html">Sell&Buy</a>
+                <Link className="nav-link" to="/books/catalog">Sell&Buy</Link>
               </li>
               <li className="nav-item">
-                <a className="nav-link" href="team.html"> Exchange </a>
+                <Link className="nav-link" to="/books/exchange"> Exchange </Link>
               </li>
               <li className="nav-item">
-                <a className="nav-link" href="contact.html">Contact Us</a>
+                <Link className="nav-link" to="/contact">Contact Us</Link>
               </li>
               <li className="nav-item">
-                <a className="nav-link" href="#">
+                <Link className="nav-link" to="/login">
                   <i className="fa fa-user" aria-hidden="true"></i>
                   <span>
                     Login
                   </span>
-                </a>
+                </Link>
               </li>
               <li className="nav-item">
-                <a className="nav-link" href="#">
+                <Link className="nav-link" to="#">
                   <i className="fa fa-user" aria-hidden="true"></i>
                   <span>
                     Logout
                   </span>
-                </a>
+                </Link>
               </li>
             </ul>
           </div>
