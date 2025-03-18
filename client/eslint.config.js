@@ -33,6 +33,7 @@ export default [
         'warn',
         { allowConstantExport: true },
       ],
+      'treact/no-unescaped-entities':'off'
     },
   },
 ]
