@@ -12,49 +12,11 @@ function App() {
     </div>
     {/* <!-- header section strats --> */}
     <header className="header_section">
-      <div className="header_top">
-        <div className="container-fluid header_top_container">
-
-           <div className="contact_nav">
-            <a href="">
-              <i className="fa fa-map-marker" aria-hidden="true"></i>
-              <span>
-                Location
-              </span>
-            </a>
-            <a href="">
-              <i className="fa fa-phone" aria-hidden="true"></i>
-              <span>
-                Call : +01 123455678990
-              </span>
-            </a>
-            <a href="">
-              <i className="fa fa-envelope" aria-hidden="true"></i>
-              <span>
-                demo@gmail.com
-              </span>
-            </a>
-          </div> 
-          <div className="social_box">
-            <a href="">
-              <i className="fa fa-facebook" aria-hidden="true"></i>
-            </a>
-            <a href="">
-              <i className="fa fa-twitter" aria-hidden="true"></i>
-            </a>
-            <a href="">
-              <i className="fa fa-linkedin" aria-hidden="true"></i>
-            </a>
-            <a href="">
-              <i className="fa fa-instagram" aria-hidden="true"></i>
-            </a>
-          </div>
-        </div>
-      </div>
+    
       <div className="header_bottom">
         <div className="container-fluid">
           <nav className="navbar navbar-expand-lg custom_nav-container ">
-            <a className="navbar-brand " href="index.html"> Finter </a>
+            <a className="navbar-brand " href="index.html"> Bookstore </a>
 
             <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
               <span className=""> </span>
@@ -69,10 +31,10 @@ function App() {
                   <a className="nav-link" href="about.html"> About</a>
                 </li>
                 <li className="nav-item">
-                  <a className="nav-link" href="service.html">Services</a>
+                  <a className="nav-link" href="service.html">Sell&Buy</a>
                 </li>
                 <li className="nav-item">
-                  <a className="nav-link" href="team.html"> Team </a>
+                  <a className="nav-link" href="team.html"> Exchange </a>
                 </li>
                 <li className="nav-item">
                   <a className="nav-link" href="contact.html">Contact Us</a>
@@ -85,11 +47,14 @@ function App() {
                     </span>
                   </a>
                 </li>
-                <form className="form-inline justify-content-center">
-                  <button className="btn  my-2 my-sm-0 nav_search-btn" type="submit">
-                    <i className="fa fa-search" aria-hidden="true"></i>
-                  </button>
-                </form>
+                <li className="nav-item">
+                  <a className="nav-link" href="#">
+                    <i className="fa fa-user" aria-hidden="true"></i>
+                    <span>
+                      Logout
+                    </span>
+                  </a>
+                </li>
               </ul>
             </div>
           </nav>
@@ -98,88 +63,24 @@ function App() {
     </header>
     {/* <!-- end header section --> */}
     {/* <!-- slider section --> */}
-    <section className="slider_section ">
-      <div id="customCarousel1" className="carousel slide" data-ride="carousel">
-        <div className="carousel-inner">
-          <div className="carousel-item active">
-            <div className="container ">
-              <div className="row">
-                <div className="col-lg-10 col-md-11 mx-auto">
-                  <div className="detail-box">
-                    <h1>
-                      We Provide <br/>
-                      Welding Services
-                    </h1>
-                    <p>
-                      Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio omnis fugit, sed tempora praesentium commodi error, hic recusandae repudiandae neque ad molestias, atque veritatis labore quae eveniet autem in
-                    </p>
-                    <div className="btn-box">
-                      <a href="" className="btn1">
-                        Contact Us
-                      </a>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
+    <section className="slider_section">
+  <div className="container">
+    <div className="row">
+      <div className="col-lg-10 col-md-11 mx-auto">
+        <div className="detail-box">
+          <h1>Welcome to your <br/> Bookstore!</h1>
+          <p>
+            Discover a world of stories, knowledge, and imagination...
+          </p>
+          <div className="btn-box">
+            <a href="" className="btn1">Explore</a>
           </div>
-          <div className="carousel-item">
-            <div className="container ">
-              <div className="row">
-                <div className="col-lg-10 col-md-11 mx-auto">
-                  <div className="detail-box">
-                    <h1>
-                      We Provide <br/>
-                      Welding Services
-                    </h1>
-                    <p>
-                      Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio omnis fugit, sed tempora praesentium commodi error, hic recusandae repudiandae neque ad molestias, atque veritatis labore quae eveniet autem in
-                    </p>
-                    <div className="btn-box">
-                      <a href="" className="btn1">
-                        Contact Us
-                      </a>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div className="carousel-item">
-            <div className="container ">
-              <div className="row">
-                <div className="col-lg-10 col-md-11 mx-auto">
-                  <div className="detail-box">
-                    <h1>
-                      We Provide <br/>
-                      Welding Services
-                    </h1>
-                    <p>
-                      Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio omnis fugit, sed tempora praesentium commodi error, hic recusandae repudiandae neque ad molestias, atque veritatis labore quae eveniet autem in
-                    </p>
-                    <div className="btn-box">
-                      <a href="" className="btn1">
-                        Contact Us
-                      </a>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div className="carousel_btn-box">
-          <a className="carousel-control-prev" href="#customCarousel1" role="button" data-slide="prev">
-            <i className="fa fa-arrow-left" aria-hidden="true"></i>
-            <span className="sr-only">Previous</span>
-          </a>
-          <a className="carousel-control-next" href="#customCarousel1" role="button" data-slide="next">
-            <i className="fa fa-arrow-right" aria-hidden="true"></i>
-            <span className="sr-only">Next</span>
-          </a>
         </div>
       </div>
-    </section>
+    </div>
+  </div>
+</section>
+
     {/* <!-- end slider section --> */}
   </div>
 
