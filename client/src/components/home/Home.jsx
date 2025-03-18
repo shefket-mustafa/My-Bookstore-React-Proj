@@ -1,4 +1,4 @@
-import Header from "../header/Header";
+
 
 export default function Home() {
   return (
@@ -7,7 +7,7 @@ export default function Home() {
       <img src="images/library-image.webp" alt=""/>
     </div>
    
-    <Header />
+    
 
     {/* <!-- slider section --> */}
     <section className="slider_section">

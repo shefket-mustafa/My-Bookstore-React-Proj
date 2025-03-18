@@ -5,6 +5,10 @@ body {
   overflow-x: hidden;
 }
 
+.header_section{
+  background-color: rgb(44, 120, 115)
+}
+
 .layout_padding {
   padding: 90px 0;
 }
