@@ -8,6 +8,7 @@ import Footer from "./components/footer/Footer"
 import Header from "./components/header/Header"
 
 import Home from "./components/home/Home"
+import ErrorPage from "./components/error-page/ErrorPage"
 // import Testimonial from "../components/testimonial-carousel/Testimonial"
 
 
@@ -27,6 +28,7 @@ function App() {
 <Route path="/about" element={<About />} />
 <Route path="/books/exchange" element={<Exchange />} />
 <Route path="/contact" element={<Contact />} />
+<Route path="*" element={<ErrorPage />} />
 
     {/* <Testimonial /> */}
 
