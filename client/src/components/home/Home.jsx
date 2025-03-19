@@ -15,7 +15,7 @@ export default function Home() {
     <div className="row">
       <div className="col-lg-10 col-md-11 mx-auto">
         <div className="detail-box">
-          <h1>Welcome to your <br/> Bookstore!</h1>
+          <h1>Welcome to our <br/> Bookstore!</h1>
           <p>
             Discover a world of stories, knowledge, and imagination...
           </p>

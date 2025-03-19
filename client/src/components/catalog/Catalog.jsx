@@ -1,124 +1,54 @@
 export default function Catalog() {
+  // Sample book data
+  const books = [
+    {
+      id: 1,
+      title: "The Great Gatsby",
+      author: "F. Scott Fitzgerald",
+      price: "$12.99",
+      imageSrc: "https://images.booksense.com/images/694/767/9781936767694.jpg",
+      imageAlt: "Cover of The Great Gatsby",
+    },
+    {
+      id: 2,
+      title: "1984",
+      author: "George Orwell",
+      price: "$9.99",
+      imageSrc: "https://mir-s3-cdn-cf.behance.net/project_modules/fs/b468d093312907.5e6139cf2ab03.png",
+      imageAlt: "Cover of 1984",
+    },
+    {
+      id: 3,
+      title: "To Kill a Mockingbird",
+      author: "Harper Lee",
+      price: "$14.99",
+      imageSrc: "https://m.media-amazon.com/images/I/81aY1lxk+9L.jpg",
+      imageAlt: "Cover of To Kill a Mockingbird",
+    },
+    {
+      id: 4,
+      title: "Moby Dick",
+      author: "Herman Melville",
+      price: "$10.99",
+      imageSrc: "https://m.media-amazon.com/images/I/91xNmlf86yL.jpg",
+      imageAlt: "Cover of Moby Dick",
+    },
+  ];
+
   return (
-      <>
-      <section className="service_section layout_padding">
-    <div className="container">
-      <div className="heading_container heading_center ">
-        <h2 className="">
-          Our Services
-        </h2>
-        <p className="col-lg-8 px-0">
-          If you are going to use a passage of Lorem Ipsum, you need to be sure there isn`t anything believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn`t anything
-        </p>
-      </div>
-      <div className="service_container">
-        <div className="carousel-wrap ">
-          <div className="service_owl-carousel owl-carousel">
-            <div className="item">
-              <div className="box ">
-                <div className="img-box">
-                  <img src="images/s1.png" alt="" />
-                </div>
-                <div className="detail-box">
-                  <h5>
-                    Home Welding
-                  </h5>
-                  <p>
-                    when looking at its layout. The point of using Lorem Ipsum is
-                    that it has a more-or-less normal
-                  </p>
-                </div>
-              </div>
-            </div>
-            <div className="item">
-              <div className="box ">
-                <div className="img-box">
-                  <img src="images/s4.png" alt="" />
-                </div>
-                <div className="detail-box">
-                  <h5>
-                    Machine Welding
-                  </h5>
-                  <p>
-                    when looking at its layout. The point of using Lorem Ipsum is
-                    that it has a more-or-less normal
-                  </p>
-                </div>
-              </div>
-            </div>
-            <div className="item">
-              <div className="box ">
-                <div className="img-box">
-                  <img src="images/s6.png" alt="" />
-                </div>
-                <div className="detail-box">
-                  <h5>
-                    Car Welding
-                  </h5>
-                  <p>
-                    when looking at its layout. The point of using Lorem Ipsum is
-                    that it has a more-or-less normal
-                  </p>
-                </div>
-              </div>
-            </div>
-            <div className="item">
-              <div className="box ">
-                <div className="img-box">
-                  <img src="images/s1.png" alt="" />
-                </div>
-                <div className="detail-box">
-                  <h5>
-                    Home Welding
-                  </h5>
-                  <p>
-                    when looking at its layout. The point of using Lorem Ipsum is
-                    that it has a more-or-less normal
-                  </p>
-                </div>
-              </div>
-            </div>
-            <div className="item">
-              <div className="box ">
-                <div className="img-box">
-                  <img src="images/s4.png" alt="" />
-                </div>
-                <div className="detail-box">
-                  <h5>
-                    Machine Welding
-                  </h5>
-                  <p>
-                    when looking at its layout. The point of using Lorem Ipsum is
-                    that it has a more-or-less normal
-                  </p>
-                </div>
-              </div>
-            </div>
-            <div className="item">
-              <div className="box ">
-                <div className="img-box">
-                  <img src="images/s6.png" alt="" />
-                </div>
-                <div className="detail-box">
-                  <h5>
-                    Car Welding
-                  </h5>
-                  <p>
-                    when looking at its layout. The point of using Lorem Ipsum is
-                    that it has a more-or-less normal
-                  </p>
-                </div>
-              </div>
-            </div>
+    <section className="booklist-container">
+      <h2>Available Books</h2>
+      <div className="book-grid">
+        {books.map((book) => (
+          <div key={book.id} className="book-card">
+            <img src={book.imageSrc} alt={book.imageAlt} />
+            <h3>{book.title}</h3>
+            <p>by {book.author}</p>
+            <p className="price">{book.price}</p>
+            <button className="buy-button">Buy Now</button>
           </div>
-        </div>
+        ))}
       </div>
-      <div className="btn-box">
-        <a href="">
-          Read More
-        </a>
-      </div>
-    </div>
-  </section></>
-    );
+    </section>
+  );
 }
