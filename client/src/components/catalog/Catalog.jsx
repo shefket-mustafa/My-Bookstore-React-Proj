@@ -15,7 +15,7 @@ export default function Catalog() {
         <div className="book-grid">
           {books.map((book) => (
             <div key={book.id} className="book-card">
-              <img src={book.imageSrc} alt={book.imageAlt} />
+              <img src={book.imageUrl} alt={book.imageAlt} />
               <h3>{book.title}</h3>
               <p>by {book.author}</p>
               <p className="price">{book.price}</p>
