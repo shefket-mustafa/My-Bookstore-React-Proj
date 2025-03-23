@@ -12,7 +12,7 @@ export default function Contact() {
         <div className="col-md-5 mx-auto">
           <div className="form_container">
             <div className="heading_container heading_center">
-              <h2>Get In Touch</h2>
+              <h2>Get In Touch ✉️</h2>
             </div>
             <form action="">
               <div className="form-row">

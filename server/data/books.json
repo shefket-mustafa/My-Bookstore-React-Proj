@@ -1,0 +1,27 @@
+[
+    {
+      "title": "The Great Gatsby",
+      "author": "F. Scott Fitzgerald",
+      "price": "$12.99",
+      "imageUrl": "https://images.booksense.com/images/694/767/9781936767694.jpg"
+    },
+    {
+      "title": "1984",
+      "author": "George Orwell",
+      "price": "$9.99",
+      "imageUrl": "https://mir-s3-cdn-cf.behance.net/project_modules/fs/b468d093312907.5e6139cf2ab03.png"
+    },
+    {
+      "title": "To Kill a Mockingbird",
+      "author": "Harper Lee",
+      "price": "$14.99",
+      "imageUrl": "https://m.media-amazon.com/images/I/81aY1lxk+9L.jpg"
+    },
+    {
+      "title": "Moby Dick",
+      "author": "Herman Melville",
+      "price": "$10.99",
+      "imageUrl": "https://m.media-amazon.com/images/I/91xNmlf86yL.jpg"
+    }
+  ]
+  

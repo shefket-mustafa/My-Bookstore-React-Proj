@@ -20,7 +20,7 @@ export default function Sell() {
     
               <label>
                 Image URL:
-                <input type="url" name="image" required/>
+                <input type="url" name="imageUrl" required/>
               </label>
     
               <label>

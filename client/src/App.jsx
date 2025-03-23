@@ -1,6 +1,5 @@
 import { Route, Routes } from "react-router"
 import About from "./components/about/About"
-// import InfoSection from "../components/above-footer/InfoSection"
 import Catalog from "./components/catalog/Catalog"
 import Contact from "./components/contact/Contact"
 import Exchange from "./components/exchange/Exchange"
@@ -12,7 +11,7 @@ import ErrorPage from "./components/error-page/ErrorPage"
 import Sell from "./components/sell/Sell"
 import Login from "./components/login/Login"
 import Register from "./components/register/Register"
-// import Testimonial from "../components/testimonial-carousel/Testimonial"
+
 
 
 
@@ -37,10 +36,6 @@ function App() {
 
 
 <Route path="*" element={<ErrorPage />} />
-
-    {/* <Testimonial /> */}
-
-    {/* <InfoSection /> */}
 
     </Routes>
     <Footer />

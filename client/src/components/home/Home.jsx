@@ -1,3 +1,4 @@
+import { Link } from "react-router";
 
 
 export default function Home() {
@@ -20,15 +21,13 @@ export default function Home() {
             Discover a world of stories, knowledge, and imagination...
           </p>
           <div className="btn-box">
-            <a href="" className="btn1">Explore</a>
+            <Link to="/books/catalog" className="btn1">Explore</Link>
           </div>
         </div>
       </div>
     </div>
   </div>
 </section>
-
-    {/* <!-- end slider section --> */}
   </div>
     );
 }
