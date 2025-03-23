@@ -11,8 +11,8 @@ export default function Footer() {
             <ul>
               <li><Link to="/">Home</Link></li>
               <li><Link to="/about">About Us</Link></li>
-              <li><Link to="/catalog">Sell & Buy</Link></li>
-              <li><Link to="/exchange">Exchange Books</Link></li>
+              <li><Link to="/books/catalog">Catalog</Link></li>
+              <li><Link to="/books/sell">Sell</Link></li>
               <li><Link to="/contact">Contact Us</Link></li>
             </ul>
           </div>
@@ -20,25 +20,25 @@ export default function Footer() {
           {/* Center - Contact Info */}
           <div className="footer_contact">
             <h4>Contact Us</h4>
-            <p>Email: support@bookstore.com</p>
-            <p>Phone: +1 (123) 456-7890</p>
-            <p>Location: 123 Book Street, Library City</p>
+            <p>Email: shefket.must@gmail.com</p>
+            <p>Phone: +359 00 000 000</p>
+            <p>Location: 78 Aleksander Malinov Bv, Sofia City</p>
           </div>
 
           {/* Right Side - Social Media */}
           <div className="footer_social">
             <h4>Follow Us</h4>
             <div className="social_icons">
-              <a href="#"><i className="fa fa-facebook"></i></a>
-              <a href="#"><i className="fa fa-twitter"></i></a>
-              <a href="#"><i className="fa fa-instagram"></i></a>
+              <a href="https://facebook.com" target="self"><i className="fa fa-facebook"></i></a>
+              <a href="https://x.com" target="self"><i className="fa fa-twitter"></i></a>
+              <a href="https://instagram.com" target="self"><i className="fa fa-instagram"></i></a>
             </div>
           </div>
         </div>
 
         {/* Copyright */}
         <div className="footer_bottom">
-          <p>© {new Date().getFullYear()} Bookstore. All Rights Reserved.</p>
+          <p>© 2025 Bookstore. All Rights Reserved.</p>
         </div>
       </div>
     </footer>
