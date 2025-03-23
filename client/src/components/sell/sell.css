@@ -1,7 +1,7 @@
 .create-container {
     background-image: url(../../../public/images/create-page-image.webp);
     position: relative;
-    min-height: 100vh;
+    min-height: 94vh;
     display: flex;
     justify-content: center;
     align-items: center;
