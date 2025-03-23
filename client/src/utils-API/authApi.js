@@ -8,22 +8,11 @@ export const useLogin =  () => {
     const navigate = useNavigate()
 
     const login = async (email, password) => {
-        try{
+        
             const response = await post(`${baseUrl}/login`, { email,password });
             
-        console.log(response);
-        if(response.message){
-            return
-        } else {
             localStorage.setItem('auth', JSON.stringify(response))
-            navigate('/')
-        }
-
-            
-        }catch(err){
-            console.alert(err.message)
-        };
-
+            return response;
     };
 
     return {login};
@@ -34,6 +23,7 @@ export const useRegister = () => {
     const register = async (email, password) => {
         const response = await post(`${baseUrl}/register`, { email,password });
         localStorage.setItem('auth', JSON.stringify(response))
+        return response
     };
 
     return {register};

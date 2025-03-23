@@ -1,21 +1,32 @@
 import { useNavigate } from 'react-router';
 import { useRegister } from '../../utils-API/authApi';
 import './register.css'
+import { useUserContext } from '../../provider-and-context/UserContext';
 
 export default function Register() {
-  const { register } = useRegister();
   const navigate = useNavigate();
+  const { register } = useRegister();
+  const { registerUserDataHandler, errorHandler } = useUserContext();
+
 
   const registerHandler = async (formData) => {
     
     const {email, password, rePass} = Object.fromEntries(formData);
 
     if(password !== rePass){
+      errorHandler('Passwords do not match')
       return;
     };
 
-      await register(email, password);
+    try{
+      const response = await register(email, password);
+      registerUserDataHandler(response);
       navigate('/');
+
+    }catch(err){
+      errorHandler(err.message)
+    }
+      
 
   }
   return (

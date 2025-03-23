@@ -1,5 +1,5 @@
 /* Background container */
-.login-container {
+.register-container {
     position: relative;
     min-height: 100vh;
     padding: 40px 20px;
@@ -11,7 +11,7 @@
   }
   
   /* Background image */
-  .login-bg-box {
+  .register-bg-box {
     position: absolute;
     top: 0;
     left: 0;
@@ -23,7 +23,7 @@
     z-index: 1;
   }
   
-  .login-bg-box::before {
+  .register-bg-box::before {
     content: "";
     position: absolute;
     top: 0;
@@ -35,7 +35,7 @@
   }
   
   
-  .login-centered-box {
+  .register-centered-box {
     position: relative;
     z-index: 3;
     width: 100%;
@@ -45,8 +45,8 @@
   
 
   
-  /* Login form box */
-  .login-form-box {
+  /* register form box */
+  .register-form-box {
     background-color: rgba(255, 255, 255, 0.95);
     padding: 30px;
     border-radius: 10px;
@@ -54,13 +54,13 @@
     ;
   }
   
-  .login-form-box h3 {
+  .register-form-box h3 {
     text-align: center;
     margin-bottom: 20px;
     color: #2c7873;
   }
   
-  .login-form label {
+  .register-form label {
     display: block;
     margin-bottom: 15px;
     font-size: 14px;
@@ -68,7 +68,7 @@
     text-align: left;
   }
   
-  .login-form input {
+  .register-form input {
     width: 100%;
     padding: 8px 10px;
     margin-top: 5px;
@@ -76,7 +76,7 @@
     border-radius: 5px;
   }
   
-  .login-form button {
+  .register-form button {
     width: 100%;
     background-color: #2c7873;
     color: white;
@@ -89,10 +89,10 @@
     transition: background-color 0.3s;
   }
   
-  .login-form button:hover {
+  .register-form button:hover {
     background-color: #1b5f5a;
   }
-  .redirect-login{
+  .redirect-register{
     margin-top: 20px;
     margin-bottom: 0px;
     color: #2c7873;

@@ -11,6 +11,8 @@ import ErrorPage from "./components/error-page/ErrorPage"
 import Sell from "./components/sell/Sell"
 import Login from "./components/login/Login"
 import Register from "./components/register/Register"
+import UserProvider from "./provider-and-context/UserProvider"
+import ErrorModal from "./components/error-modal/ErrorModal"
 
 
 
@@ -20,6 +22,8 @@ function App() {
 
   return (
     <>
+
+<UserProvider>
 
 <Header />
 
@@ -38,6 +42,7 @@ function App() {
 <Route path="*" element={<ErrorPage />} />
 
     </Routes>
+    </UserProvider>
     <Footer />
 
 

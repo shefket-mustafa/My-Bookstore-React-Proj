@@ -36,7 +36,8 @@ export default [
       'treact/no-unescaped-entities':'off',
       'no-unused-vars':'off',
       'react/no-unescaped-entities':'off',
-      'react/prop-types':'off'
+      'react/prop-types':'off',
+      'no-useless-catch':'off'
     },
   },
 ]

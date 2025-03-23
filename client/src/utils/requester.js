@@ -8,8 +8,7 @@ export const requester = async (method, url, data) => {
         options.body = JSON.stringify(data);
     };
 
-    
-    const authData = JSON.parse(localStorage.getItem('userData'));
+    const authData = JSON.parse(localStorage.getItem('auth'));
 
     if(authData?.accessToken){
         const token = authData.accessToken;
@@ -24,6 +23,11 @@ export const requester = async (method, url, data) => {
     try{
         const response = await fetch(url,options)
 
+        if (!response.ok) {
+            const errorData = await response.json();
+            throw new Error(errorData.message);
+          }
+
           if(response.status === 204){
             return response;
           } else {
@@ -31,8 +35,7 @@ export const requester = async (method, url, data) => {
           }
 
     }catch(err){
-        alert(err.message);
-        console.log(err.message);
+        throw err;
     }
 }
 
