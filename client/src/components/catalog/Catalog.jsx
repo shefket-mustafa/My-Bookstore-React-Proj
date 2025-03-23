@@ -1,7 +1,10 @@
 import '../catalog/catalog.css';
+import { useBooks } from '../../utils-book-API/bookApi';
 
 export default function Catalog() {
-  
+    const  {books}  = useBooks();
+    console.log(books);
+    
   return (
     <section className="booklist-container">
       <div className="booklist-bg-box"></div>

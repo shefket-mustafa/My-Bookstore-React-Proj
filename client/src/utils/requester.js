@@ -1,8 +1,7 @@
-const baseUrl = 'http://localhost:3030'
 
-const requester = async (method, url, data) => {
+export const requester = async (method, url, data) => {
 
-    let options = {}
+    let options = {method}
 
     if(method !== 'GET' && data){
         options.headers ={'Content-Type':'application/json'};
@@ -12,18 +11,18 @@ const requester = async (method, url, data) => {
     
     const authData = JSON.parse(localStorage.getItem('userData'));
 
-    if(authData.accessToken){
+    if(authData?.accessToken){
         const token = authData.accessToken;
 
     options.headers = {
         ...options.headers,
         'X-Authorization' : token
     };
-    
+
     }
 
     try{
-        const response = await fetch(baseUrl+url,options)
+        const response = await fetch(url,options)
 
           if(response.status === 204){
             return response;
