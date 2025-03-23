@@ -43,7 +43,12 @@ export default function Header() {
               </li>
 
               <li className="nav-item">
-                <Link className="nav-link" to="/register"> Register </Link>
+                <Link className="nav-link" to="/register">
+                  <i className="fa fa-user" aria-hidden="true"></i>
+                  <span>
+                    Register
+                  </span>
+                </Link>
               </li>
 
               <li className="nav-item">

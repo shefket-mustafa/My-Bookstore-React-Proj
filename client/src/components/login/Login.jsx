@@ -33,6 +33,7 @@ export default function Login() {
             </label>
 
             <button type="submit">Log In</button>
+            <p className="redirect-register"> Don't have an account? <a className='reg-a' href="/register">Register</a></p>
           </form>
         </div>
       </div>
