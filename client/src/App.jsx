@@ -10,6 +10,7 @@ import Header from "./components/header/Header"
 import Home from "./components/home/Home"
 import ErrorPage from "./components/error-page/ErrorPage"
 import Sell from "./components/sell/Sell"
+import Login from "./components/login/Login"
 // import Testimonial from "../components/testimonial-carousel/Testimonial"
 
 
@@ -30,6 +31,7 @@ function App() {
 <Route path="/books/exchange" element={<Exchange />} />
 <Route path="/contact" element={<Contact />} />
 <Route path="/books/sell" element={<Sell />} />
+<Route path="/login" element={<Login />} />
 
 
 <Route path="*" element={<ErrorPage />} />

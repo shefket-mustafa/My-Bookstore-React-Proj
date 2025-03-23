@@ -6,7 +6,7 @@ export default function Sell() {
         <section className="create-container">
             <div className='create-bg-box' ></div>
           <div className="create-form-box">
-            <h2>Create New Book</h2>
+            <h2>Sell your book</h2>
             <form  className="create-form">
               <label>
                 Title:

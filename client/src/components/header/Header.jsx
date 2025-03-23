@@ -34,12 +34,11 @@ export default function Header() {
               <li className="nav-item">
                 <Link className="nav-link" to="/contact">Contact Us</Link>
               </li>
+              
               <li className="nav-item">
                 <Link className="nav-link" to="/login">
                   <i className="fa fa-user" aria-hidden="true"></i>
-                  <span>
                     Login
-                  </span>
                 </Link>
               </li>
 
