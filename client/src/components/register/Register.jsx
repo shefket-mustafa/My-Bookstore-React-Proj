@@ -1,6 +1,23 @@
+import { useNavigate } from 'react-router';
+import { useRegister } from '../../utils-API/authApi';
 import './register.css'
 
 export default function Register() {
+  const { register } = useRegister();
+  const navigate = useNavigate();
+
+  const registerHandler = async (formData) => {
+    
+    const {email, password, rePass} = Object.fromEntries(formData);
+
+    if(password !== rePass){
+      return;
+    };
+
+      await register(email, password);
+      navigate('/');
+
+  }
   return (
       
      <section className="register-container">
@@ -11,7 +28,7 @@ export default function Register() {
 
         <div className="register-form-box">
           <h3>Register</h3>
-          <form  className="register-form">
+          <form action={registerHandler}  className="register-form">
             <label>
               Email:
               <input
@@ -36,7 +53,7 @@ export default function Register() {
               Confirm password:
               <input
                 type="password"
-                name="RePass"
+                name="rePass"
                 
                 required
               />

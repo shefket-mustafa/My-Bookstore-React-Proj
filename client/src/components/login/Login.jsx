@@ -1,6 +1,17 @@
+import { useNavigate } from 'react-router';
+import { useLogin } from '../../utils-API/authApi';
 import './login.css'
 
 export default function Login() {
+    const navigate = useNavigate();
+    const { login } = useLogin();
+
+    const loginHandler = async (formData) => {
+      const { email, password } = Object.fromEntries(formData);
+
+      const repsponse = await login(email,password);
+      
+    }
   return (
       
      <section className="login-container">
@@ -11,7 +22,7 @@ export default function Login() {
 
         <div className="login-form-box">
           <h3>Login</h3>
-          <form  className="login-form">
+          <form  action={loginHandler} className="login-form">
             <label>
               Email:
               <input

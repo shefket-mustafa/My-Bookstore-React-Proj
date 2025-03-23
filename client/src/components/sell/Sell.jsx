@@ -1,13 +1,24 @@
+import { useSellBook } from '../../utils-book-API/bookApi';
 import '../sell/sell.css'
 
 export default function Sell() {
+
+    const { create } = useSellBook();
+
+    const sellBookFormAction = (formData) => {
+      const bookData = Object.fromEntries(formData);
+      
+      console.log(bookData);
+      
+    }
+
  
     return (
         <section className="create-container">
             <div className='create-bg-box' ></div>
           <div className="create-form-box">
             <h2>Sell your book</h2>
-            <form  className="create-form">
+            <form action={sellBookFormAction} className="create-form">
               <label>
                 Title:
                 <input type="text" name="title" required/>
@@ -15,7 +26,7 @@ export default function Sell() {
     
               <label>
                 Author:
-                <input type="text" name="author"required/>
+                <input type="text" name="author" required/>
               </label>
     
               <label>

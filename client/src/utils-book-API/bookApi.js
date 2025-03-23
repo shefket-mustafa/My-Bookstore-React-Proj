@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { get, requester } from "../utils/requester";
+import { get, post, requester } from "../utils/requester";
 
 const baseUrl = 'http://localhost:3030/data/books';
 
@@ -11,6 +11,18 @@ export const useBooks = () => {
         .then(setBooks)
     },[])
 
-    return { books }
+    return { books };
 
 }
+
+export const useSellBook = () => {
+
+    const create = (bookData) => {
+        //TODO userID pri dobawqne
+        bookData={
+        }
+        post(baseUrl,bookData);
+    };
+
+    return create;
+};
