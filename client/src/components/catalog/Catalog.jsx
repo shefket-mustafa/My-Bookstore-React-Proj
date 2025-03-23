@@ -1,5 +1,6 @@
 import '../catalog/catalog.css';
 import { useBooks } from '../../utils-book-API/bookApi';
+import CatalogItems from './catalog-item/CatalogItems';
 
 export default function Catalog() {
     const  {books}  = useBooks();
@@ -13,15 +14,7 @@ export default function Catalog() {
           <h2>Available Books</h2>
         </div>
         <div className="book-grid">
-          {books.map((book) => (
-            <div key={book.id} className="book-card">
-              <img src={book.imageUrl} alt={book.imageAlt} />
-              <h3>{book.title}</h3>
-              <p>by {book.author}</p>
-              <p className="price">{book.price}</p>
-              <button className="buy-button">Buy Now</button>
-            </div>
-          ))}
+          {books.map((book) => <CatalogItems key={book.id} book={book}/>)}
         </div>
       </div>
     </section>
