@@ -4,7 +4,7 @@ export default function About() {
       <div className="container">
         <div className="row align-items-stretch"> {/* Ensures equal heights */}
           
-          {/* Who We Are (Left) */}
+          
           <div className="col-md-4 d-flex">
             <div className="detail-box text-left p-4 h-100 d-flex flex-column">
               <h2 className="text-dark">Who We Are 🧐</h2>
@@ -14,7 +14,7 @@ export default function About() {
             </div>
           </div>
 
-          {/* Our Mission (Center) */}
+          
           <div className="col-md-4 d-flex">
             <div className="detail-box text-center p-4 h-100 d-flex flex-column">
               <h2 className="text-dark">Our Mission 📚</h2>
@@ -24,11 +24,11 @@ export default function About() {
             </div>
           </div>
 
-          {/* What We Offer (Right) */}
+          
           <div className="col-md-4 d-flex">
             <div className="detail-box text-right p-4 h-100 d-flex flex-column">
               <h2 className="text-dark">What We Offer 🔄</h2>
-              <ul className="list-unstyled text-muted flex-grow-1">
+              <ul className="list-unstyled text-muted flex-grow-1 mt-3">
                 <li>📚 A wide selection of books across different genres.</li>
                 <li>🔄 An easy book exchange system to swap books with fellow readers.</li>
                 <li>💰 A buy & sell marketplace for affordable book deals.</li>

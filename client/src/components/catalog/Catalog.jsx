@@ -1,5 +1,6 @@
+import '../catalog/catalog.css';
+
 export default function Catalog() {
-  // Sample book data
   const books = [
     {
       id: 1,
@@ -37,17 +38,22 @@ export default function Catalog() {
 
   return (
     <section className="booklist-container">
-      <h2>Available Books</h2>
-      <div className="book-grid">
-        {books.map((book) => (
-          <div key={book.id} className="book-card">
-            <img src={book.imageSrc} alt={book.imageAlt} />
-            <h3>{book.title}</h3>
-            <p>by {book.author}</p>
-            <p className="price">{book.price}</p>
-            <button className="buy-button">Buy Now</button>
-          </div>
-        ))}
+      <div className="booklist-bg-box"></div>
+      <div className="catalog-content">
+        <div className="catalog-heading">
+          <h2>Available Books</h2>
+        </div>
+        <div className="book-grid">
+          {books.map((book) => (
+            <div key={book.id} className="book-card">
+              <img src={book.imageSrc} alt={book.imageAlt} />
+              <h3>{book.title}</h3>
+              <p>by {book.author}</p>
+              <p className="price">{book.price}</p>
+              <button className="buy-button">Buy Now</button>
+            </div>
+          ))}
+        </div>
       </div>
     </section>
   );
