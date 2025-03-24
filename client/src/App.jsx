@@ -13,6 +13,7 @@ import Login from "./components/login/Login"
 import Register from "./components/register/Register"
 import UserProvider from "./provider-and-context/UserProvider"
 import ErrorModal from "./components/error-modal/ErrorModal"
+import Logout from "./components/logout/Logout"
 
 
 
@@ -37,6 +38,7 @@ function App() {
 <Route path="/books/sell" element={<Sell />} />
 <Route path="/login" element={<Login />} />
 <Route path="/register" element={<Register />} />
+<Route path="/logout" element={<Logout />} />
 
 
 <Route path="*" element={<ErrorPage />} />

@@ -12,6 +12,7 @@ export const requester = async (method, url, data) => {
 
     if(authData?.accessToken){
         const token = authData.accessToken;
+        
 
     options.headers = {
         ...options.headers,
@@ -39,7 +40,7 @@ export const requester = async (method, url, data) => {
     }
 }
 
-export const get = (url) => requester('GET', url);
+export const get = (url,options) => requester('GET', url,options);
 export const post = (url,data) => requester('POST', url,data);
 export const put = (url,data) => requester('PUT', url,data);
 export const del = (url) => requester('DELETE', url);

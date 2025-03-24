@@ -52,7 +52,7 @@ export default function Header() {
               </li>
 
               <li className="nav-item">
-                <Link className="nav-link" to="#">
+                <Link className="nav-link" to="/logout">
                   <i className="fa fa-user" aria-hidden="true"></i>
                   <span>
                     Logout

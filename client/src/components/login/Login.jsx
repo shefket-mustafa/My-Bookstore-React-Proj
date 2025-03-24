@@ -17,7 +17,7 @@ export default function Login() {
         navigate('/')
       }catch(err){
         errorHandler(err.message)
-        console.log(err.message);
+        
       }
       
 
@@ -38,6 +38,7 @@ export default function Login() {
               <input
                 type="email"
                 name="email"
+                
                
                 required
               />
