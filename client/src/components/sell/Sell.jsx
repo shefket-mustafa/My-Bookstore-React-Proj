@@ -30,12 +30,12 @@ export default function Sell() {
             <form action={sellBookFormAction} className="create-form">
               <label>
                 Title:
-                <input type="text" name="title" required/>
+                <input type="text" name="title" maxLength="20" required />
               </label>
     
               <label>
                 Author:
-                <input type="text" name="author" required/>
+                <input type="text" name="author" maxLength="20" required />
               </label>
     
               <label>

@@ -36,19 +36,23 @@
   z-index: 3;
   width: 100%;
   max-width: 1200px;
+  margin: 0 auto; /* ✅ centers horizontally */
+  padding: 40px 20px; /* ✅ adds breathing space */
   text-align: center;
   color: white;
 }
 
 /* Heading box */
 .catalog-heading {
-  background-color: rgba(255, 255, 255, 0.85);
-  color: #222;
+  box-shadow: 0 4px 12px rgb(255, 255, 255, 0.2);
+  color: #ffffff;
   padding: 20px 40px;
   border-radius: 12px;
-  margin-bottom: 80px;
+  margin-bottom: 60px;
   display: inline-block;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+   background-color: rgba(255, 255, 255, 0.1); /* keeps glow feel */
+  backdrop-filter: blur(8px); /* fancy glass effect */
+  
 }
 
 /* Grid Layout for Books */
@@ -57,26 +61,34 @@
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   gap: 20px;
   margin: auto;
+
+  /* Ensures rows align */
+  align-items: stretch;
 }
 
 /* Individual Book Card */
 .book-card {
-  background: rgba(255, 255, 255, 0.85);
-  padding: 8px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  height: 100%; /* Makes it stretch */
+  padding: 20px;
   border-radius: 6px;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-  text-align: center;
-  transition: transform 0.2s;
-  font-size: 13px;
   max-width: 250px;
   margin: auto;
+
+  backdrop-filter: blur(8px);
+  box-shadow: 0 4px 12px rgba(255, 255, 255, 0.2);
+  background-color: rgba(255, 255, 255, 0.05); /* Light glassy bg */
 }
+
 
 
 .book-card img {
   width: 100%;
   height: 200px;
-  object-fit: fit;
+  object-fit:contain;
   border-radius: 5px;
   transition: height 0.3s ease;
 }
@@ -98,11 +110,22 @@
   font-size: 18px;
   margin: 10px 0;
   color: #2c7873;
+
+  /* Limit to 2 lines */
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
 
 .book-card p {
   font-size: 14px;
-  color: #555;
+  color: #ffffff;
+
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
 
 /* Price */
