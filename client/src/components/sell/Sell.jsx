@@ -1,14 +1,23 @@
+import { useNavigate } from 'react-router';
 import { useSellBook } from '../../utils-book-API/bookApi';
 import '../sell/sell.css'
+import { useUserContext } from '../../provider-and-context/UserContext';
 
 export default function Sell() {
 
     const { create } = useSellBook();
+    const { errorHandler} = useUserContext()
+    const navigate = useNavigate();
 
-    const sellBookFormAction = (formData) => {
+    const sellBookFormAction = async (formData) => {
       const bookData = Object.fromEntries(formData);
       
-      console.log(bookData);
+      try{
+        await create(bookData);
+        navigate('/books/catalog');
+      }catch(err){
+        errorHandler(err.message)
+      }
       
     }
 
