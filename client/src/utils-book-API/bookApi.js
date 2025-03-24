@@ -17,12 +17,11 @@ export const useBooks = () => {
 
 export const useSellBook = () => {
 
-    const create = (bookData) => {
-        //TODO userID pri dobawqne
-        bookData={
-        }
-        post(baseUrl,bookData);
+    const create = async (bookData) => {
+        
+        const result = await post(baseUrl,bookData);
     };
 
-    return create;
+    return {create};
 };
+

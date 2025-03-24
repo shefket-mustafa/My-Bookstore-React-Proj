@@ -9,7 +9,7 @@ export default function About() {
             <div className="detail-box text-left p-4 h-100 d-flex flex-column">
               <h2 className="text-dark">Who We Are 🧐</h2>
               <p className="text-muted flex-grow-1">
-                At Bookstore, we are dedicated to connecting book lovers from all walks of life. Whether you’re a student searching for textbooks, a collector of rare editions, or simply a reader looking for your next favorite book, we provide a simple, affordable, and enjoyable way to buy, sell, and exchange books online.
+                At Bookstore, we are dedicated to connecting book lovers from all walks of life. Whether you’re a student searching for textbooks, a collector of rare editions, or simply a reader looking for your next favorite book, we provide a simple, affordable, and enjoyable way to buy and sell books online.
               </p>
             </div>
           </div>

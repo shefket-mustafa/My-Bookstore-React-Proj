@@ -14,7 +14,7 @@ export default function Catalog() {
           <h2>Available Books</h2>
         </div>
         <div className="book-grid">
-          {books.map((book) => <CatalogItems key={book.id} book={book}/>)}
+          {books.map((book) => <CatalogItems key={book._id} book={book}/>)}
         </div>
       </div>
     </section>
