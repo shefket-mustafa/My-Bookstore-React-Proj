@@ -1,7 +1,10 @@
 import { Link } from "react-router";
+import { useUserContext } from "../../provider-and-context/UserContext";
 
 
 export default function Home() {
+  const { isAuthenticated } = useUserContext()
+  console.log("Home rendered. Auth:", isAuthenticated);
   return (
     <div className="hero_area">
     <div className="hero_bg_box">

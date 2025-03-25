@@ -2,7 +2,7 @@ import { Route, Routes } from "react-router"
 import About from "./components/about/About"
 import Catalog from "./components/catalog/Catalog"
 import Contact from "./components/contact/Contact"
-import Exchange from "./components/exchange/Exchange"
+// import Exchange from "./components/exchange/Exchange"
 import Footer from "./components/footer/Footer"
 import Header from "./components/header/Header"
 
@@ -12,8 +12,8 @@ import Sell from "./components/sell/Sell"
 import Login from "./components/login/Login"
 import Register from "./components/register/Register"
 import UserProvider from "./provider-and-context/UserProvider"
-import ErrorModal from "./components/error-modal/ErrorModal"
-import Logout from "./components/logout/Logout"
+import UserGuard from "./components/guards/user-guard/UserGuard"
+import GuestGuard from "./components/guards/guest-guard/GuestGuard"
 
 
 
@@ -31,15 +31,23 @@ function App() {
 <Routes>
 
 <Route path="/" element={<Home />} />
-<Route path="/books/catalog" element={<Catalog />} />
 <Route path="/about" element={<About />} />
-<Route path="/books/exchange" element={<Exchange />} />
+<Route path="/books/catalog" element={<Catalog />} />
 <Route path="/contact" element={<Contact />} />
-<Route path="/books/sell" element={<Sell />} />
-<Route path="/login" element={<Login />} />
-<Route path="/register" element={<Register />} />
-<Route path="/logout" element={<Logout />} />
 
+<Route element={<UserGuard />}>
+    <Route path="/books/sell" element={<Sell />} />
+    <Route path="/books/details" element={<Sell />} />
+    <Route path="/books/edit" element={<Sell />} />
+</Route>
+    
+
+<Route element={<GuestGuard />}>
+    <Route path="/login" element={<Login />} />
+    <Route path="/register" element={<Register />} />
+</Route>
+
+{/* <Route path="/books/exchange" element={<Exchange />} /> */}
 
 <Route path="*" element={<ErrorPage />} />
 

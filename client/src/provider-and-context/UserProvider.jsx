@@ -9,7 +9,10 @@ import ErrorModal from "../components/error-modal/ErrorModal";
 
       useEffect(()=>{
         const storedAuth = JSON.parse(localStorage.getItem('auth'));
+        if(storedAuth?.accessToken){
+
           setUserData(storedAuth)
+        }
       },[])
 
       const loginUserDataHandler = (data) => {
@@ -32,7 +35,15 @@ import ErrorModal from "../components/error-modal/ErrorModal";
 
 
       return (
-        <UserContext.Provider  value={{...userData, loginUserDataHandler, logoutUserHandler, errorHandler, registerUserDataHandler, isAuthenticated: !!userData.accessToken}}>
+        <UserContext.Provider  value={{
+          ...userData, 
+          loginUserDataHandler, 
+          logoutUserHandler, 
+          errorHandler, 
+          registerUserDataHandler, 
+          isAuthenticated: !!userData.accessToken
+          }}>
+
           {error && <ErrorModal message={error} />}
           {children}
         </UserContext.Provider>
