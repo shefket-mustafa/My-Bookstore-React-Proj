@@ -6,6 +6,7 @@ import { createContext, useContext } from "react"
         id: '',
         email: '',
         accessToken: '',
+        isAuthenticated: Boolean,
         logoutUserHandler: () => null,
         loginUserDataHandler: () => null,
         registerUserDataHandler: () => null,
