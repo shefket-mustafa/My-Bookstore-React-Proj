@@ -1,4 +1,4 @@
-import { useNavigate } from 'react-router';
+import { Link, useNavigate } from 'react-router';
 import { useLogin } from '../../utils-API/authApi';
 import './login.css'
 import { useUserContext } from '../../provider-and-context/UserContext';
@@ -55,7 +55,7 @@ export default function Login() {
             </label>
 
             <button type="submit">Log In</button>
-            <p className="redirect-register"> Don't have an account? <a className='reg-a' href="/register">Register</a></p>
+            <p className="redirect-register"> Don't have an account? <Link className='reg-a' href="/register">Register</Link></p>
           </form>
         </div>
       </div>
