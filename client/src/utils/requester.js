@@ -25,8 +25,17 @@ export const requester = async (method, url, data) => {
         const response = await fetch(url,options)
 
         if (!response.ok) {
+            if (response.status === 403 || response.status === 401) {
+                localStorage.removeItem("auth");
+                window.location.href = "/login";
+            }
             const errorData = await response.json();
             throw new Error(errorData.message);
+          }
+          
+          if(response.status === 403 && response.message ==='Invalid access token'){
+            localStorage.removeItem('auth')
+
           }
 
           if(response.status === 204){
