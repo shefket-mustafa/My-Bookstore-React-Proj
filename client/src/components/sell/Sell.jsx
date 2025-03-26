@@ -48,6 +48,17 @@ export default function Sell() {
                 <input type="number" name="price" required step="0.01" min="0"
                 />
               </label>
+
+              <label>
+              Comment:
+               <textarea
+                  className="comments-field"
+                    name="comments"
+                    required
+                    minLength="10"
+                ></textarea>
+              </label>
+
     
               <button type="submit">Add Book</button>
             </form>

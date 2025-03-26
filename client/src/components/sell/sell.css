@@ -80,4 +80,16 @@
   .create-form button:hover {
     background-color: #1b5f5a;
   }
+
+  .comments-field{
+    width: 100%;
+    height: 100px;
+    resize: vertical; /* or "none" if you don't want users resizing it */
+    padding: 8px 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-family: inherit;
+    font-size: 14px;
+    line-height: 1.4;
+  }
   
