@@ -25,3 +25,14 @@ export const useSellBook = () => {
     return {create};
 };
 
+export const useGetBook = () => {
+    
+    const getBook = async (bookId) => {
+        await get(`${baseUrl}/${bookId}`)
+        .then(result => {
+            return result
+        })
+    }
+    return {getBook}
+};
+

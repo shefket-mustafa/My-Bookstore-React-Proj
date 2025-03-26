@@ -4,7 +4,7 @@ import CatalogItems from './catalog-item/CatalogItems';
 
 export default function Catalog() {
     const  {books}  = useBooks();
-    
+    console.log(books);
     
   return (
     <section className="booklist-container">
