@@ -53,9 +53,10 @@ export default function Sell() {
               Comment:
                <textarea
                   className="comments-field"
-                    name="comments"
+                    name="comment"
                     required
-                    minLength="10"
+                    minLength="5"
+                    maxLength="120"
                 ></textarea>
               </label>
 

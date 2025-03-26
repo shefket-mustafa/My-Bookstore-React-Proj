@@ -1,12 +1,18 @@
 import { useEffect, useState } from "react";
 import { UserContext } from "./UserContext";
 import ErrorModal from "../components/error-modal/ErrorModal";
+import { useGetBook } from "../utils-book-API/bookApi";
+import { useNavigate } from "react-router";
 
     export default function UserProvider({children}) {
 
+      const navigate = useNavigate();
       const [userData, setUserData] = useState({});
+      const [bookDetails, setBookDetails] = useState([]);
       const [error, setError] = useState('');
+      const {getBook} = useGetBook();
 
+      
       useEffect(()=>{
         const storedAuth = JSON.parse(localStorage.getItem('auth'));
         if(storedAuth?.accessToken){
@@ -23,7 +29,7 @@ import ErrorModal from "../components/error-modal/ErrorModal";
         setUserData(data);
       };
 
-      const logoutUserHandler = (data) => {
+      const logoutUserHandler = () => {
         setUserData({});
       };
 
@@ -31,12 +37,22 @@ import ErrorModal from "../components/error-modal/ErrorModal";
         setError(message);
         setTimeout(()=>setError(''),1000)
       }
+
+      const detailsHandler = async (bookId) => {
+
+          const result = await getBook(bookId);
+          setBookDetails(result)
+
+          navigate(`/books/details/${bookId}`)
+      }
      
 
 
       return (
         <UserContext.Provider  value={{
-          ...userData, 
+          user: userData,
+          book: bookDetails,
+          detailsHandler,
           loginUserDataHandler, 
           logoutUserHandler, 
           errorHandler, 

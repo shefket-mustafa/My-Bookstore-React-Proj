@@ -40,7 +40,6 @@ export const useLogout = () => {
             try {
 
                 if (accessToken) {
-                
                 const options = {
                     headers: {'X-Authorization': accessToken}
                 }

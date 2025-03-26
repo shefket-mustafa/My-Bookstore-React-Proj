@@ -2,7 +2,7 @@ import { useParams } from "react-router";
 import { useUserContext } from "../../../provider-and-context/UserContext";
 
 export default function CatalogItems({book}) {
-  const {detailsHandler, title} = useUserContext();
+  const {detailsHandler} = useUserContext();
   
 
    
@@ -15,7 +15,7 @@ export default function CatalogItems({book}) {
     <p>by {book.author}</p>
     <p className="price">${book.price}</p>
 
-  <button onClick={()=> detailsHandler(book._id)} className="details-button">Details</button> 
+  <button onClick={()=>detailsHandler(book._id)} className="details-button">Details</button> 
     
     {/* <>
      <button className="buy-button">Edit</button>
