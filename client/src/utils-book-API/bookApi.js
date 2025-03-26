@@ -28,10 +28,9 @@ export const useSellBook = () => {
 export const useGetBook = () => {
     
     const getBook = async (bookId) => {
-        await get(`${baseUrl}/${bookId}`)
-        .then(result => {
-            return result
-        })
+       const result = await get(`${baseUrl}/${bookId}`,null)
+        
+       return result;
     }
     return {getBook}
 };

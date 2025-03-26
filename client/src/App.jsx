@@ -14,6 +14,7 @@ import Register from "./components/register/Register"
 import UserProvider from "./provider-and-context/UserProvider"
 import UserGuard from "./components/guards/user-guard/UserGuard"
 import GuestGuard from "./components/guards/guest-guard/GuestGuard"
+import Details from "./components/details/Details"
 
 
 
@@ -34,11 +35,11 @@ function App() {
 <Route path="/about" element={<About />} />
 <Route path="/books/catalog" element={<Catalog />} />
 <Route path="/contact" element={<Contact />} />
+<Route path="/books/details/:bookId" element={<Details />} />
 
 <Route element={<UserGuard />}>
     <Route path="/books/sell" element={<Sell />} />
-    <Route path="/books/details" element={<Sell />} />
-    <Route path="/books/edit" element={<Sell />} />
+    <Route path="/books/edit/:id/" element={<Sell />} />
 </Route>
     
 
