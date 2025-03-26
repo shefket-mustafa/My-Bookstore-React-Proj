@@ -14,14 +14,17 @@ export default function Details() {
     
 
     useEffect(()=>{
+        window.scrollTo(0, 0);
+
         if(!book.title){
 
         detailsHandler(bookId)
         }
     },[bookId,detailsHandler,book.title])
+
+   
     
-    console.log('userId:', user._id);
-console.log('ownerId:', book._ownerId);
+
     const isOwner = user._id === book._ownerId;
     
 
@@ -35,10 +38,10 @@ console.log('ownerId:', book._ownerId);
         </div>
 
         <div className="details-info">
-          <h2 className="details-title">{book.title}</h2>
-          <p className="details-author"><strong>Author:</strong> {book.author}</p>
-          <p className="details-price"><strong>Price:</strong> ${book.price}</p>
-          <p className="details-description"><strong>Comment:</strong></p>
+          <h2 className="details-title" style={{ color: 'white'}}>{book.title}</h2>
+          <p className="details-author"><strong style={{ color: '#2c7873'}}>Author: </strong> {book.author}</p>
+          <p className="details-price"><strong style={{ color: '#2c7873'}}>Price: </strong> ${book.price}</p>
+          <p className="details-description"><strong style={{ color: '#2c7873'}}>Comment:</strong></p>
           <p>{book.comment}</p>
         </div>
 
