@@ -11,7 +11,7 @@ export default function Details() {
     book,
     detailsHandler
   } = useUserContext();
-    
+                            
 
     useEffect(()=>{
         window.scrollTo(0, 0);
@@ -46,8 +46,8 @@ export default function Details() {
         </div>
 
         {isOwner && <div className='details-buttons'>
-            <button >Edit</button>
-            <button >Delete</button>
+            <Link to={`/books/edit/${book._id}`} >Edit</Link>
+            <Link to={`/books/delete/${book._id}`}>Delete</Link>
         </div>}
         
       </div>

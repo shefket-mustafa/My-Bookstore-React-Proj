@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { get, post, requester } from "../utils/requester";
+import { get, post, put, requester } from "../utils/requester";
 
 const baseUrl = 'http://localhost:3030/data/books';
 
@@ -33,5 +33,15 @@ export const useGetBook = () => {
        return result;
     }
     return {getBook}
+};
+
+export const useEditBook = () => {
+
+    const editBook = async (formData,id) => {
+        const result = await put(`${baseUrl}/${id}`, formData)
+        console.log(result);
+        return result;
+    };
+    return {editBook};
 };
 
