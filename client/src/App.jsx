@@ -16,6 +16,7 @@ import UserGuard from "./components/guards/user-guard/UserGuard"
 import GuestGuard from "./components/guards/guest-guard/GuestGuard"
 import Details from "./components/details/Details"
 import Edit from "./components/edit/Edit"
+import Delete from "./components/delete/Delete"
 
 
 
@@ -41,6 +42,7 @@ function App() {
 <Route element={<UserGuard />}>
     <Route path="/books/sell" element={<Sell />} />
     <Route path="/books/edit/:bookId" element={<Edit />} />
+    <Route path="/books/delete/:bookId" element={<Delete />} />
 </Route>
     
 

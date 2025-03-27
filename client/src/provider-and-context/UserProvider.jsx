@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 import { UserContext } from "./UserContext";
 import ErrorModal from "../components/error-modal/ErrorModal";
-import { useEditBook, useGetBook } from "../utils-book-API/bookApi";
-import { useNavigate } from "react-router";
+import { useDeleteBook, useEditBook, useGetBook } from "../utils-book-API/bookApi";
+import { Navigate, useNavigate } from "react-router";
 
     export default function UserProvider({children}) {
 
@@ -12,6 +12,7 @@ import { useNavigate } from "react-router";
       const [error, setError] = useState('');
       const {getBook} = useGetBook();
       const {editBook} = useEditBook();
+      const {deleteBook} = useDeleteBook();
 
       
       useEffect(()=>{
@@ -56,6 +57,12 @@ import { useNavigate } from "react-router";
         navigate(`/books/details/${id}`)
       }
 
+      const deleteHandler = async(id) => {
+        await deleteBook(id);
+        setBookDetails({})
+        
+      }
+
       // const loadBookByIdEdit = async (bookId) => {
       //   const result = await getBook(bookId);
       //   console.log('Fetched result:', result);
@@ -71,6 +78,7 @@ import { useNavigate } from "react-router";
           book: bookDetails,
           editHandler,
           // loadBookByIdEdit,
+          deleteHandler,
           detailsHandler,
           loginUserDataHandler, 
           logoutUserHandler, 

@@ -12,6 +12,7 @@ import { createContext, useContext } from "react"
         logoutUserHandler: () => null,
         loginUserDataHandler: () => null,
         registerUserDataHandler: () => null,
+        deleteHandler: () => null,
         // loadBookByIdEdit:() => null,
         editHandler: () => null,
         errorHandler: () => null

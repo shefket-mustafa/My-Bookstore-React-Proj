@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { get, post, put, requester } from "../utils/requester";
+import { del, get, post, put, requester } from "../utils/requester";
 
 const baseUrl = 'http://localhost:3030/data/books';
 
@@ -43,5 +43,14 @@ export const useEditBook = () => {
         return result;
     };
     return {editBook};
+};
+
+export const useDeleteBook = () => {
+
+    const deleteBook = async (id) => {
+        return await del(`${baseUrl}/${id}`)
+    }
+
+    return {deleteBook}
 };
 
