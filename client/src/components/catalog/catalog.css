@@ -49,10 +49,27 @@
   padding: 20px 40px;
   border-radius: 12px;
   margin-bottom: 60px;
+
+  width: 100%;
+  max-width: 400px;
+  margin-left: auto;
+  margin-right: auto;
+  
   display: inline-block;
    background-color: rgba(255, 255, 255, 0.1); /* keeps glow feel */
   backdrop-filter: blur(8px); /* fancy glass effect */
   
+}
+
+@media (max-width: 600px) {
+  .catalog-heading {
+    padding: 15px 20px;
+    font-size: 1rem;
+  }
+}
+
+.search-input{
+  width: 100%;
 }
 
 /* Grid Layout for Books */
@@ -149,6 +166,16 @@
   transition: background 0.3s;
 }
 .details-button {
+  background-color: #2c7873;
+  color: white;
+  border: none;
+  padding: 8px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 10px;
+  transition: background 0.3s;
+}
+.search-btn{
   background-color: #2c7873;
   color: white;
   border: none;
