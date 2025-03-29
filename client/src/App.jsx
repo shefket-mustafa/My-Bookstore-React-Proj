@@ -17,6 +17,7 @@ import GuestGuard from "./components/guards/guest-guard/GuestGuard"
 import Details from "./components/details/Details"
 import Edit from "./components/edit/Edit"
 import Delete from "./components/delete/Delete"
+import ManageScrollPosition from "./components/manage-scroll-position/ManageScrollPosition"
 
 
 
@@ -30,6 +31,9 @@ function App() {
 <UserProvider>
 
 <Header />
+  
+<ManageScrollPosition />
+
 
 <Routes>
 
