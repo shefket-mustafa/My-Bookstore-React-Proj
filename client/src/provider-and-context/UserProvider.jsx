@@ -13,6 +13,7 @@ import { Navigate, useNavigate } from "react-router";
       const {getBook} = useGetBook();
       const {editBook} = useEditBook();
       const {deleteBook} = useDeleteBook();
+      
 
       
       useEffect(()=>{
@@ -63,12 +64,7 @@ import { Navigate, useNavigate } from "react-router";
         
       }
 
-      // const loadBookByIdEdit = async (bookId) => {
-      //   const result = await getBook(bookId);
-      //   console.log('Fetched result:', result);
-      //   setBookDetails(result);
-        // I made this to make the edit page persistant on refresh
-      // };
+     
      
 
 

@@ -1,8 +1,12 @@
 import { useEffect, useState } from "react";
 import { del, get, post, put, requester } from "../utils/requester";
+import { useUserContext } from "../provider-and-context/UserContext";
 
 const baseUrl = 'http://localhost:3030/data/books';
 
+    
+
+    //Get all books
 export const useBooks = () => {
     const [books, setBooks] = useState([]);
 
@@ -11,10 +15,11 @@ export const useBooks = () => {
         .then(setBooks)
     },[])
 
-    return { books };
+    return { books, setBooks };
 
 }
 
+//Create a book
 export const useSellBook = () => {
 
     const create = async (bookData) => {
@@ -25,6 +30,7 @@ export const useSellBook = () => {
     return {create};
 };
 
+//Get one book
 export const useGetBook = () => {
     
     const getBook = async (bookId) => {
@@ -35,6 +41,7 @@ export const useGetBook = () => {
     return {getBook}
 };
 
+//Edit a book
 export const useEditBook = () => {
 
     const editBook = async (formData,id) => {
@@ -45,6 +52,7 @@ export const useEditBook = () => {
     return {editBook};
 };
 
+//Delete a book
 export const useDeleteBook = () => {
 
     const deleteBook = async (id) => {
@@ -53,4 +61,25 @@ export const useDeleteBook = () => {
 
     return {deleteBook}
 };
+
+export const useSearchBooks = () => {
+    const {errorHandler} = useUserContext();
+
+    const search = async (title) => {
+        const encodedTitle = encodeURIComponent(`title LIKE "${title}"`);
+
+        try{
+
+            const result = await get(`${baseUrl}?where=${encodedTitle}`);
+            return result;
+            
+        }catch(err){
+            errorHandler(err.message)
+        }
+    }
+
+    return {search}
+}
+
+
 
