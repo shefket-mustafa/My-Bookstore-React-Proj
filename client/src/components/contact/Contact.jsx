@@ -1,6 +1,13 @@
+import { useNavigate } from 'react-router';
 import './contact.css'
 
 export default function Contact() {
+  const navigate = useNavigate();
+
+  const submitHandler = () => {
+    navigate('/')
+  }
+
   return (
       <>
       {/* <!-- contact section --> */}
@@ -14,29 +21,29 @@ export default function Contact() {
             <div className="heading_container heading_center">
               <h2>Get In Touch ✉️</h2>
             </div>
-            <form action="">
+            <form action= {submitHandler}>
               <div className="form-row">
                 <div className="form-group col">
-                  <input type="text" className="form-control" placeholder="Your Name" />
+                  <input type="text" className="form-control" placeholder="Your Name" required/>
                 </div>
               </div>
               <div className="form-row">
                 <div className="form-group col">
-                  <input type="text" className="form-control" placeholder="Phone Number" />
+                  <input type="text" className="form-control" placeholder="Phone Number" required/>
                 </div>
               </div>
               <div className="form-row">
                 <div className="form-group col">
-                  <input type="email" className="form-control" placeholder="Email" />
+                  <input type="email" className="form-control" placeholder="Email" required/>
                 </div>
               </div>
               <div className="form-row">
                 <div className="form-group col">
-                  <input type="text" className="message-box form-control" placeholder="Message" />
+                  <textarea className="message-box form-control" placeholder="Message" required rows={5} />
                 </div>
               </div>
               <div className="btn_box">
-                <button>
+                <button >
                   SEND
                 </button>
               </div>
