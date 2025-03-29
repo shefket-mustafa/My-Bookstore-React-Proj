@@ -52,7 +52,7 @@ export default function Edit() {
               </label>
 
     
-              <button type="submit">Edit Book</button>
+              <button className="edit-btn" type="submit">Edit Book</button>
             </form>
           </div>
         </section>

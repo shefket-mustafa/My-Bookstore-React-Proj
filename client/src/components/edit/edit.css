@@ -64,7 +64,7 @@
     border-radius: 5px;
   }
   
-  .edit-form button {
+  .edit-link, .edit-btn  {
     width: 100%;
     background-color: #2c7873;
     color: white;
@@ -76,8 +76,23 @@
     margin-top: 20px;
     transition: background-color 0.3s;
   }
-  
-  .edit-form button:hover {
+  .delete-link  {
+    width: 100%;
+    background-color: #2c7873;
+    color: white;
+    border: none;
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 6px;
+    cursor: pointer;
+    margin-top: 20px;
+    transition: background-color 0.3s;
+  }
+
+  .edit-link:hover, .edit-btn:hover {
+    background-color: #1b5f5a;
+  }
+  .delete-link:hover {
     background-color: #1b5f5a;
   }
 

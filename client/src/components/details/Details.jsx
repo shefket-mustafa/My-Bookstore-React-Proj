@@ -14,7 +14,6 @@ export default function Details() {
                             
 
     useEffect(()=>{
-        window.scrollTo(0, 0);
 
         if(!book.title){
 
@@ -46,8 +45,8 @@ export default function Details() {
         </div>
 
         {isOwner && <div className='details-buttons'>
-            <Link to={`/books/edit/${book._id}`} >Edit</Link>
-            <Link to={`/books/delete/${book._id}`}>Delete</Link>
+            <Link className='edit-link' to={`/books/edit/${book._id}`} >Edit</Link>
+            <Link className='delete-link' to={`/books/delete/${book._id}`}>Delete</Link>
         </div>}
         
       </div>
