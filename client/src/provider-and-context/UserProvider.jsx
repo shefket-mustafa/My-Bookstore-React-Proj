@@ -45,8 +45,6 @@ import { useNavigate } from "react-router";
 
           const result = await getBook(bookId);
           setBookDetails(result)
-
-          navigate(`/books/details/${bookId}`)
       }
 
       const editHandler = async(formData,id) => {
