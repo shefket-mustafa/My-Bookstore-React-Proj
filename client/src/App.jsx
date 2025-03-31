@@ -29,11 +29,8 @@ function App() {
     <>
 
 <UserProvider>
-
 <Header />
-  
 <ManageScrollPosition />
-
 
 <Routes>
 

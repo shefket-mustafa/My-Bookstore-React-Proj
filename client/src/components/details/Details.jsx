@@ -38,6 +38,9 @@ export default function Details() {
 
         <div className="details-info">
           <h2 className="details-title" style={{ color: 'white'}}>{book.title}</h2>
+
+          
+
           <p className="details-author"><strong style={{ color: '#2c7873'}}>Author: </strong> {book.author}</p>
           <p className="details-price"><strong style={{ color: '#2c7873'}}>Price: </strong> ${book.price}</p>
           <p className="details-description"><strong style={{ color: '#2c7873'}}>Comment:</strong></p>
@@ -48,7 +51,8 @@ export default function Details() {
             <Link className='edit-link' to={`/books/edit/${book._id}`} >Edit</Link>
             <Link className='delete-link' to={`/books/delete/${book._id}`}>Delete</Link>
         </div>}
-        
+            <div className='link-button'><button className='like-link' >Like</button></div>
+    
       </div>
     </section>
   );

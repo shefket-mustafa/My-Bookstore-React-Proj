@@ -1,4 +1,5 @@
 import './pagination.css'
+
 export default function Pagination({ currentPage, totalPages, onPageChange }) {
   
   const pages = [];

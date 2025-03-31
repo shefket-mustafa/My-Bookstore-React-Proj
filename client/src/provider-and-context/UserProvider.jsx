@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { UserContext } from "./UserContext";
 import ErrorModal from "../components/error-modal/ErrorModal";
 import { useDeleteBook, useEditBook, useGetBook } from "../utils-book-API/bookApi";
-import { Navigate, useNavigate } from "react-router";
+import { useNavigate } from "react-router";
 
     export default function UserProvider({children}) {
 
@@ -63,11 +63,7 @@ import { Navigate, useNavigate } from "react-router";
         setBookDetails({})
         
       }
-
-     
-     
-
-
+      
       return (
         <UserContext.Provider  value={{
           user: userData,
