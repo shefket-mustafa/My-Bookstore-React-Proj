@@ -1,30 +1,53 @@
 import { Link, useParams } from 'react-router';
 import { useUserContext } from '../../provider-and-context/UserContext';
 import './details.css';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
+import { useGetBookLikes, useHasUserLikedBook } from '../../utils/utils-likes-api/likesApi';
 
 export default function Details() {
     const {bookId} = useParams();
+    const {getBookLikes} = useGetBookLikes();
+    const {hasLikedBook} = useHasUserLikedBook();
+    const [likes, setLikes] = useState(0);
+    const [hasLiked, setHasLiked] = useState(false);
+    const {
+      user,
+      book,
+      detailsHandler
+    } = useUserContext();
 
-  const {
-    user,
-    book,
-    detailsHandler
-  } = useUserContext();
-                            
+    const isOwner = user._id === book._ownerId;
+    
 
-    useEffect(()=>{
+  
+    useEffect(() => {
+      if (book._id !== bookId) {
+        detailsHandler(bookId);
+      }
+    }, [bookId,book._id,detailsHandler]);
 
-        if(!book.title){
-
-        detailsHandler(bookId)
+    useEffect(() => {
+      const fetchLikeData = async () => {
+        if (!book._id) return;
+        try {
+          const count = await getBookLikes(book._id);
+          setLikes(count);
+    
+          if (user && !isOwner) {
+            const liked = await hasLikedBook(book._id, user._id);
+            setHasLiked(liked);
+          }
+        } catch (err) {
+          console.error('Error loading like data:', err);
         }
-    },[bookId,detailsHandler,book.title])
+      };
+    
+      fetchLikeData();
+    }, [book._id, getBookLikes, isOwner, hasLikedBook, user]);
 
    
     
 
-    const isOwner = user._id === book._ownerId;
     
 
   return (
@@ -38,10 +61,8 @@ export default function Details() {
 
         <div className="details-info">
           <h2 className="details-title" style={{ color: 'white'}}>{book.title}</h2>
-
-          
-
           <p className="details-author"><strong style={{ color: '#2c7873'}}>Author: </strong> {book.author}</p>
+          <p className="details-likes"><strong style={{ color: '#2c7873'}}>Likes: </strong> {likes}</p>
           <p className="details-price"><strong style={{ color: '#2c7873'}}>Price: </strong> ${book.price}</p>
           <p className="details-description"><strong style={{ color: '#2c7873'}}>Comment:</strong></p>
           <p>{book.comment}</p>
