@@ -1,6 +1,6 @@
 # My Bookstore React Project
 
-Welcome to **My Bookstore**, a full-featured web application built using **JavaScript** and **React** This app allows users to browse, post, edit, delete, and search books for sale, with authentication and likes functionality included.
+Welcome to **My Bookstore**, a full-featured web application built using **JavaScript** and **React**. This app allows users to browse, post, edit, delete, and search books for sale, with authentication and likes functionality included.
 
 ---
 
@@ -41,27 +41,32 @@ My-Bookstore-React-Proj/
 ## 📦 Getting Started
 
 ### 1. Clone the repo
+
 ```bash
-git clone https://github.com/shefket-mustafa/My-Bookstore-React-Proj.git
+git clone https://github.com/yourusername/My-Bookstore-React-Proj.git
 cd My-Bookstore-React-Proj
 ```
 
 ### 2. Start the Client
+
 ```bash
 cd client
 npm install
 npm run dev
 ```
+
 Open your **integrated terminal in VS Code**, navigate to the `client` folder, and run the above commands.
 
 The React app should now be running at: `http://localhost:5173`
 
 ### 3. Start the Server
+
 ```bash
 cd server
 npm install
 node server.js
 ```
+
 Open another **integrated terminal**, go to the `server` folder, and run the above commands.
 
 The backend should be running at: `http://localhost:3030`
@@ -69,7 +74,13 @@ The backend should be running at: `http://localhost:3030`
 ---
 
 ## 📌 Notes
+
 - The UI is based on a ready-made HTML/CSS template, heavily reworked with custom styling.
+- You need to be logged in to create, edit, delete, or like books.
+- The backend is a prebuilt mock server used for development purposes.
+- You can use the following login credentials for testing:
+  - **Email**: admin@abv.bg
+  - **Password**: admin 
 - You need to be logged in to create, edit, delete, or like books.
 - The backend is a prebuilt mock server used for development purposes.
 
@@ -77,5 +88,6 @@ The backend should be running at: `http://localhost:3030`
 
 
 ## 💡 Inspiration
+
 This project is a part of a learning journey through **modern frontend development** with **React**.
 
