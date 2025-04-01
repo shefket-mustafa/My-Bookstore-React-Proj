@@ -1,4 +1,10 @@
 
+  let navigateFunction = null;
+
+  export const setNavigate = (navigate) => {
+    navigateFunction = navigate;
+  }
+
 export const requester = async (method, url, data) => {
 
     let options = {method}
@@ -27,7 +33,10 @@ export const requester = async (method, url, data) => {
         if (!response.ok) {
             if (response.status === 403 || response.status === 401) {
                 localStorage.removeItem("auth");
-                window.location.href = "/login";
+                
+                if (navigateFunction) {
+                  navigateFunction('/login'); 
+                }
             }
             const errorData = await response.json();
             throw new Error(errorData.message);
