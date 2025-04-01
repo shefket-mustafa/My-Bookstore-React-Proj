@@ -36,7 +36,7 @@
 }
 
 .details-card {
-  position: relative; /* ✅ ensures it's above the background */
+  position: relative; 
   z-index: 3;
   display: flex;
   flex-direction: row;
@@ -109,9 +109,9 @@
   .details-buttons {
     margin-top: 30px;
     display: flex;
-    justify-content: center; /* center horizontally */
-    gap: 20px; /* space between buttons */
-    align-self: flex-end; /* push to bottom if needed */
+    justify-content: center; 
+    gap: 20px; 
+    align-self: flex-end; 
   }
   
   .details-buttons button {
