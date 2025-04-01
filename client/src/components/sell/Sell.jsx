@@ -2,6 +2,7 @@ import { useNavigate } from 'react-router';
 import { useSellBook } from '../../utils-book-API/bookApi';
 import '../sell/sell.css'
 import { useUserContext } from '../../provider-and-context/UserContext';
+import { registerValidator } from '../../validators/validator';
 
 export default function Sell() {
 
@@ -11,10 +12,15 @@ export default function Sell() {
 
     const sellBookFormAction = async (formData) => {
       const bookData = Object.fromEntries(formData);
+
       
       try{
+        registerValidator(bookData);
+
         await create(bookData);
+
         navigate('/books/catalog');
+        
       }catch(err){
         errorHandler(err.message)
       }
