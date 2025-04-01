@@ -42,7 +42,7 @@ My-Bookstore-React-Proj/
 
 ### 1. Clone the repo
 ```bash
-git clone https://github.com/yourusername/My-Bookstore-React-Proj.git
+git clone https://github.com/shefket-mustafa/My-Bookstore-React-Proj.git
 cd My-Bookstore-React-Proj
 ```
 
@@ -81,10 +81,6 @@ Pull requests are welcome. For major changes, please open an issue first to disc
 
 ---
 
-## 📄 License
-This project is open-source and available under the [MIT License](LICENSE).
-
----
 
 ## 💡 Inspiration
 This project is a part of a learning journey through **modern frontend development** with **React**.
