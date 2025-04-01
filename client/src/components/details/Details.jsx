@@ -39,7 +39,7 @@ export default function Details() {
     
           if (user && !isOwner) {
             const liked = await hasLikedBook(book._id, user._id);
-            console.log(liked);
+            
             setHasLiked(liked);
           }
         } catch (err) {

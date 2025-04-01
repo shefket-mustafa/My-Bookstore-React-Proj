@@ -46,7 +46,7 @@ export const useEditBook = () => {
 
     const editBook = async (formData,id) => {
         const result = await put(`${baseUrl}/${id}`, formData)
-        console.log(result);
+    
         return result;
     };
     return {editBook};
