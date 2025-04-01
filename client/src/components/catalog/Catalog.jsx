@@ -70,10 +70,13 @@ const totalPages = Math.ceil(filteredBooks.length / pageSize);
   )}
 </div>
         
+    {totalPages > 0 && (
     <Pagination  
     currentPage={currentPage}
     totalPages={totalPages}
-    onPageChange={(page) => setCurrentPage(page)}/>
+    onPageChange={(page) => setCurrentPage(page)}
+    />
+    )}
       </div>
     </section>
     </>
