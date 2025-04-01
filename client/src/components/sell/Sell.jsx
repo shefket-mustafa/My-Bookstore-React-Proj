@@ -2,7 +2,7 @@ import { useNavigate } from 'react-router';
 import { useSellBook } from '../../utils-book-API/bookApi';
 import '../sell/sell.css'
 import { useUserContext } from '../../provider-and-context/UserContext';
-import { registerValidator } from '../../validators/validator';
+import { registerValidator, sellValidator } from '../../validators/validator';
 
 export default function Sell() {
 
@@ -15,7 +15,7 @@ export default function Sell() {
 
       
       try{
-        registerValidator(bookData);
+        sellValidator(bookData);
 
         await create(bookData);
 
