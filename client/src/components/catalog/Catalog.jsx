@@ -6,11 +6,13 @@ import Pagination from '../pagination/Pagination';
 
 export default function Catalog() {
 
+  const {search} = useSearchBooks();
+  const  {books}  = useBooks();
+
     const [searchValue, setSearchValue] = useState('');
     const [filteredBooks, setFilteredBooks] = useState([]);
     const [currentPage, setCurrentPage] = useState(1);
-    const  {books}  = useBooks();
-    const {search} = useSearchBooks();
+    const [searchPerformed, setSearchPerformed] = useState(false);
 
   const pageSize = 5;
   const paginatedBooks = filteredBooks.slice(
@@ -24,6 +26,8 @@ const totalPages = Math.ceil(filteredBooks.length / pageSize);
     }, [books]);
 
     const onSearch = async() => {
+      setSearchPerformed(true);
+
       if(searchValue.trim() === ''){
         setFilteredBooks(books)
         return
@@ -54,10 +58,17 @@ const totalPages = Math.ceil(filteredBooks.length / pageSize);
           <button onClick={onSearch} className='search-btn'>Search</button>
         </div>
         <div className="book-grid">
-        {paginatedBooks.length > 0 ? paginatedBooks.map((book) => (<CatalogItems key={book._id} book={book} />)) : (
-      <div><h1>Could not find your book!</h1></div>)}
-
-        </div>
+  {paginatedBooks.length > 0 ? ( paginatedBooks.map((book) => ( <CatalogItems key={book._id} book={book} />))) 
+  : (
+    <>
+      {searchPerformed ? (
+        <h1>Could not find your book!</h1>
+      ) : (
+        <h1>No books in the catalog yet.</h1>
+      )}
+    </>
+  )}
+</div>
         
     <Pagination  
     currentPage={currentPage}
