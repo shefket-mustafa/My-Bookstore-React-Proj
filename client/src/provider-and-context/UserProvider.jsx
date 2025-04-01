@@ -3,6 +3,7 @@ import { UserContext } from "./UserContext";
 import ErrorModal from "../components/error-modal/ErrorModal";
 import { useDeleteBook, useEditBook, useGetBook } from "../utils-book-API/bookApi";
 import { useNavigate } from "react-router";
+import { setNavigate } from "../utils/requester";
 
     export default function UserProvider({children}) {
 
@@ -24,6 +25,10 @@ import { useNavigate } from "react-router";
         }
       },[])
 
+      useEffect(()=>{
+        setNavigate(navigate)
+      },[navigate])
+
       const loginUserDataHandler = (data) => {
         setUserData(data);
         
@@ -38,7 +43,7 @@ import { useNavigate } from "react-router";
 
       const errorHandler = (message) => {
         setError(message);
-        setTimeout(()=>setError(''),1000)
+        setTimeout(()=>setError(''),2000)
       }
 
       const detailsHandler = async (bookId) => {
