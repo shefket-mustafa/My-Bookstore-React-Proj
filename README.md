@@ -1,6 +1,6 @@
 # My Bookstore React Project
 
-Welcome to **My Bookstore**, a full-featured web application built using **JavaScript**, **React**, and a ready-made backend template. This app allows users to browse, post, edit, delete, and search books for sale, with authentication and likes functionality included.
+Welcome to **My Bookstore**, a full-featured web application built using **JavaScript** and **React** This app allows users to browse, post, edit, delete, and search books for sale, with authentication and likes functionality included.
 
 ---
 
