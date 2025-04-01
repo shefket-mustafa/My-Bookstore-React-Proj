@@ -76,12 +76,6 @@ The backend should be running at: `http://localhost:3030`
 ---
 
 
-## 🤝 Contributing
-Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
-
----
-
-
 ## 💡 Inspiration
 This project is a part of a learning journey through **modern frontend development** with **React**.
 
