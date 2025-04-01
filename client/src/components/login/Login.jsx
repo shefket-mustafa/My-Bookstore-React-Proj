@@ -2,11 +2,14 @@ import { Link, useNavigate } from "react-router";
 import { useLogin } from "../../utils-API/authApi";
 import { useUserContext } from "../../provider-and-context/UserContext";
 import "./login.css";
+import { useState } from "react";
 
 export default function Login() {
   const navigate = useNavigate();
   const { login } = useLogin();
   const { loginUserDataHandler, errorHandler } = useUserContext();
+
+  const [email, setEmail] = useState('')
 
   const loginHandler = async (formData) => {
     const { email, password } = Object.fromEntries(formData);
@@ -30,7 +33,7 @@ export default function Login() {
           <form action={loginHandler} className="login-form">
             <label>
               Email:
-              <input type="email" name="email" required />
+              <input type="email" name="email" defaultValue={email} onChange={(e) => setEmail(e.target.value)} required />
             </label>
 
             <label>

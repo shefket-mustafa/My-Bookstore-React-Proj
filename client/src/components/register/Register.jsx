@@ -3,12 +3,15 @@ import { useRegister } from '../../utils-API/authApi';
 import './register.css'
 import { useUserContext } from '../../provider-and-context/UserContext';
 import { registerValidator } from '../../validators/validator';
+import { useState } from 'react';
 
 export default function Register() {
   const navigate = useNavigate();
   const { register } = useRegister();
   const { registerUserDataHandler, errorHandler } = useUserContext();
-console.log(navigate);
+  
+  const [email, setEmail] = useState('');
+
 
   const registerHandler = async (formData) => {
     
@@ -48,7 +51,8 @@ console.log(navigate);
               <input
                 type="email"
                 name="email"
-               
+                defaultValue={email}
+                onChange={(e) => setEmail(e.target.value)}
                 required
               />
             </label>
