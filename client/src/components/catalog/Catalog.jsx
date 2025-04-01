@@ -12,8 +12,8 @@ export default function Catalog() {
     const  {books}  = useBooks();
     const {search} = useSearchBooks();
 
-const pageSize = 5;
-const paginatedBooks = filteredBooks.slice(
+  const pageSize = 5;
+  const paginatedBooks = filteredBooks.slice(
   (currentPage - 1) * pageSize,
   currentPage * pageSize
 );

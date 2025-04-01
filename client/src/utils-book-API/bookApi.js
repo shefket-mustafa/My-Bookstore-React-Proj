@@ -72,7 +72,6 @@ export const useSearchBooks = () => {
 
             const result = await get(`${baseUrl}?where=${encodedTitle}`);
             return result;
-            
         }catch(err){
             errorHandler(err.message)
         }
