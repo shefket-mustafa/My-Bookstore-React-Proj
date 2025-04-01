@@ -1347,118 +1347,109 @@
     };
     var seedData = {
 
-       books: [
-        {
-          "_id": "12f13f13f3f13f1",
-          "title": "The Great Gatsby",
-          "author": "F. Scott Fitzgerald",
-          "price": "12.99",
+        books: [
+            {
+              "_id": "12f13f13f3f13f1",
+              "title": "The Great Gatsby",
+              "author": "F. Scott Fitzgerald",
+              "price": "12.99",
+              "comment": "Selling my personal copy – lightly used, no marks inside.",
+              "imageUrl": "https://images.booksense.com/images/694/767/9781936767694.jpg",
+              "_ownerId": "60f0cf0b-34b0-4abd-9769-8c42f830dffc"
+            },
+            {
+              "_id": "1f5g4g46g4f13f1",
+              "title": "1984",
+              "author": "George Orwell",
+              "price": "9.99",
+              "comment": "Great condition! Just clearing space on my shelf.",
+              "imageUrl": "https://mir-s3-cdn-cf.behance.net/project_modules/fs/b468d093312907.5e6139cf2ab03.png",
+              "_ownerId": "60f0cf0b-34b0-4abd-9769-8c42f830dffc"
+            },
+            {
+              "_id": "1iosjfe0894joeij",
+              "title": "To Kill a Mockingbird",
+              "author": "Harper Lee",
+              "price": "14.99",
+              "comment": "Loved this book, but passing it on. Excellent shape.",
+              "imageUrl": "https://m.media-amazon.com/images/I/81aY1lxk+9L.jpg",
+              "_ownerId": "60f0cf0b-34b0-4abd-9769-8c42f830dffc"
+            },
+            {
+              "_id": "2a3b4c5d6e7f8g9h",
+              "title": "Pride and Prejudice",
+              "author": "Jane Austen",
+              "price": "12.99",
+              "comment": "Cover shows minimal wear, pages are crisp and clean.",
+              "imageUrl": "https://m.media-amazon.com/images/I/81t2CVWEsUL.jpg",
+              "_ownerId": "70g1dh1c-45c1-5bde-9876-9d53g941effd"
+            },
+            {
+              "_id": "3b4c5d6e7f8g9h0i",
+              "title": "1984",
+              "author": "George Orwell",
+              "price": "15.50",
+              "comment": "Selling to fund my next reading spree – grab it cheap!",
+              "imageUrl": "https://m.media-amazon.com/images/I/71kxa1-0mfL.jpg",
+              "_ownerId": "81h2ei2d-56d2-6cef-a987-0e64h052fggf"
+            },
+            {
+              "_id": "4c5d6e7f8g9h0i1j",
+              "title": "The Great Gatsby",
+              "author": "F. Scott Fitzgerald",
+              "price": "10.00",
+              "comment": "Collector’s copy! Gently read once, then stored safely.",
+              "imageUrl": "https://m.media-amazon.com/images/I/81af+MCATTL.jpg",
+              "_ownerId": "92i3fj3e-67e3-7dfg-b098-1f75i163ghhg"
+            },
+            {
+              "_id": "5d6e7f8g9h0i1j2k",
+              "title": "Moby-Dick",
+              "author": "Herman Melville",
+              "price": "18.25",
+              "comment": "This edition is stunning – only selling because I have two!",
+              "imageUrl": "https://m.media-amazon.com/images/I/71KilybDOoL.jpg",
+              "_ownerId": "03j4gk4f-78f4-8egh-c109-2g86j274hiii"
+            },
+            {
+              "_id": "6e7f8g9h0i1j2k3l",
+              "title": "War and Peace",
+              "author": "Leo Tolstoy",
+              "price": "20.00",
+              "comment": "Purchased recently, didn't quite connect with it. Your gain!",
+              "imageUrl": "https://m.media-amazon.com/images/I/81W6BFaJJWL.jpg",
+              "_ownerId": "14k5hl5g-89g5-9fhi-d210-3h97k385ijjj"
+            },
+            {
+              "_id": "7f8g9h0i1j2k3l4m",
+              "title": "The Catcher in the Rye",
+              "author": "J.D. Salinger",
+              "price": "9.75",
+              "comment": "Read once and kept in protective sleeve. Like new!",
+              "imageUrl": "https://m.media-amazon.com/images/I/81OthjkJBuL.jpg",
+              "_ownerId": "25l6im6h-90h6-0gij-e321-4i08l496jkkk"
+            },
+            {
+              "_id": "8g9h0i1j2k3l4m5n",
+              "title": "The Hobbit",
+              "author": "J.R.R. Tolkien",
+              "price": "14.99",
+              "comment": "Selling this classic. Comes from a smoke-free home.",
+              "imageUrl": "https://m.media-amazon.com/images/I/91b0C2YNSrL.jpg",
+              "_ownerId": "36m7jn7i-01i7-1hjk-f432-5j19m507klll"
+            },
+            {
+              "_id": "9h0i1j2k3l4m5n6o",
+              "title": "Fahrenheit 451",
+              "author": "Ray Bradbury",
+              "price": "11.50",
+              "comment": "Perfect for fans – no tears, writing, or damage.",
+              "imageUrl": "https://m.media-amazon.com/images/I/71OFqSRFDgL.jpg",
+              "_ownerId": "47n8ko8j-12j8-2ikl-g543-6k20n618lmnn"
+            }
+          ],
           
-          "comment": "The Great Gatsby, novel by American author F. Scott Fitzgerald, published in 1925. It tells the story of Jay Gatsby, a self-made millionaire, and his pursuit of Daisy Buchanan, a wealthy young woman whom he loved in his youth. Set in 1920s New York, the book is narrated by Nick Carraway.",
-          "imageUrl": "https://images.booksense.com/images/694/767/9781936767694.jpg",
-          "_ownerId": "60f0cf0b-34b0-4abd-9769-8c42f830dffc"
-        },
-        {
-          "_id": "1f5g4g46g4f13f1",
-          "title": "1984",
-          "author": "George Orwell",
-          "price": "9.99",
-          
-          "comment": "1984 is a dystopian novel that was written by George Orwell and published in 1949. It tells the story of Winston Smith, a citizen of the miserable society of Oceania, who is trying to rebel against the Party and its omnipresent symbol, Big Brother.",
-          "imageUrl": "https://mir-s3-cdn-cf.behance.net/project_modules/fs/b468d093312907.5e6139cf2ab03.png",
-          "_ownerId": "60f0cf0b-34b0-4abd-9769-8c42f830dffc"
-        },
-        {
-          "_id": "1iosjfe0894joeij",
-          "title": "To Kill a Mockingbird",
-          "author": "Harper Lee",
-          "price": "14.99",
-          
-          "comment": "To Kill a Mockingbird is a 1961 novel by Harper Lee. Set in small-town Alabama, the novel is a bildungsroman, or coming-of-age story, and chronicles the childhood of Scout and Jem Finch as their father Atticus defends a Black man falsely accused of rape. Scout and Jem are mocked by classmates for this.",
-          "imageUrl": "https://m.media-amazon.com/images/I/81aY1lxk+9L.jpg",
-          "_ownerId": "60f0cf0b-34b0-4abd-9769-8c42f830dffc"
-        },
-        {
-          "_id": "2a3b4c5d6e7f8g9h",
-          "title": "Pride and Prejudice",
-          "author": "Jane Austen",
-          "price": "12.99",
-          
-          "comment": "A timeless classic that delves into the intricacies of love and social standing. This edition is well-preserved and perfect for any collector.",
-          "imageUrl": "https://m.media-amazon.com/images/I/81t2CVWEsUL.jpg",
-          "_ownerId": "70g1dh1c-45c1-5bde-9876-9d53g941effd"
-        },
-        {
-          "_id": "3b4c5d6e7f8g9h0i",
-          "title": "1984",
-          "author": "George Orwell",
-          "price": "15.50",
-          
-          "comment": "A dystopian novel that's more relevant today than ever. This copy is in excellent condition with a striking cover design.",
-          "imageUrl": "https://m.media-amazon.com/images/I/71kxa1-0mfL.jpg",
-          "_ownerId": "81h2ei2d-56d2-6cef-a987-0e64h052fggf"
-        },
-        {
-          "_id": "4c5d6e7f8g9h0i1j",
-          "title": "The Great Gatsby",
-          "author": "F. Scott Fitzgerald",
-          "price": "10.00",
-          
-          "comment": "Experience the glamour and despair of the Roaring Twenties. This edition features the iconic 'Celestial Eyes' cover.",
-          "imageUrl": "https://m.media-amazon.com/images/I/81af+MCATTL.jpg",
-          "_ownerId": "92i3fj3e-67e3-7dfg-b098-1f75i163ghhg"
-        },
-        {
-          "_id": "5d6e7f8g9h0i1j2k",
-          "title": "Moby-Dick",
-          "author": "Herman Melville",
-          "price": "18.25",
-          
-          "comment": "A maritime adventure that explores obsession and revenge. This hardcover edition is a must-have for literature enthusiasts.",
-          "imageUrl": "https://m.media-amazon.com/images/I/71KilybDOoL.jpg",
-          "_ownerId": "03j4gk4f-78f4-8egh-c109-2g86j274hiii"
-        },
-        {
-          "_id": "6e7f8g9h0i1j2k3l",
-          "title": "War and Peace",
-          "author": "Leo Tolstoy",
-          "price": "20.00",
-          
-          "comment": "An epic tale of love and war. This edition is in pristine condition and includes insightful annotations.",
-          "imageUrl": "https://m.media-amazon.com/images/I/81W6BFaJJWL.jpg",
-          "_ownerId": "14k5hl5g-89g5-9fhi-d210-3h97k385ijjj"
-        },
-        {
-          "_id": "7f8g9h0i1j2k3l4m",
-          "title": "The Catcher in the Rye",
-          "author": "J.D. Salinger",
-          "price": "9.75",
-          
-          "comment": "A journey into the mind of a disenchanted youth. This paperback is well-maintained and ready for a new reader.",
-          "imageUrl": "https://m.media-amazon.com/images/I/81OthjkJBuL.jpg",
-          "_ownerId": "25l6im6h-90h6-0gij-e321-4i08l496jkkk"
-        },
-        {
-          "_id": "8g9h0i1j2k3l4m5n",
-          "title": "The Hobbit",
-          "author": "J.R.R. Tolkien",
-          "price": "14.99",
-          
-          "comment": "Embark on an unforgettable adventure in Middle-earth. This illustrated edition brings the story to life.",
-          "imageUrl": "https://m.media-amazon.com/images/I/91b0C2YNSrL.jpg",
-          "_ownerId": "36m7jn7i-01i7-1hjk-f432-5j19m507klll"
-        },
-        {
-          "_id": "9h0i1j2k3l4m5n6o",
-          "title": "Fahrenheit 451",
-          "author": "Ray Bradbury",
-          "price": "11.50",
-          
-          "comment": "A chilling depiction of a future where books are outlawed. This edition includes a foreword by the author.",
-          "imageUrl": "https://m.media-amazon.com/images/I/71OFqSRFDgL.jpg",
-          "_ownerId": "47n8ko8j-12j8-2ikl-g543-6k20n618lmnn"
-        }
-      ],
+      
       likes: []
       
 
