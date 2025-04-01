@@ -9,8 +9,10 @@ export default function Details() {
     const {getBookLikes} = useGetBookLikes();
     const {likeBook} = useLikeBook();
     const {hasLikedBook} = useHasUserLikedBook();
+    
     const [likes, setLikes] = useState(0);
     const [hasLiked, setHasLiked] = useState(false);
+    
     const {
       user,
       book,
@@ -61,9 +63,6 @@ export default function Details() {
       }
     };
    
-    
-
-    
 
   return (
     <section className="details-wrapper">

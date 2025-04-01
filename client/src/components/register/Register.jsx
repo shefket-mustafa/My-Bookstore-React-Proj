@@ -18,6 +18,24 @@ export default function Register() {
       return;
     };
 
+    const emailRegex = /^[a-zA-Z][a-zA-Z0-9._%+-]*@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+
+
+    if (!emailRegex.test(email)) {
+      errorHandler("Invalid email format.");
+      return;
+    }
+  
+    if (password.length < 4) {
+      errorHandler("Password must be at least 4 characters.");
+      return;
+    }
+  
+    if (password !== rePass) {
+      errorHandler("Passwords do not match.");
+      return;
+    }
+    
     try{
       const response = await register(email, password);
       registerUserDataHandler(response);
