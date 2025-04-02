@@ -7,7 +7,7 @@ import { registerValidator, sellValidator } from '../../utils/validators/validat
 export default function Sell() {
 
     const { create } = useSellBook();
-    const { errorHandler} = useUserContext()
+    const { errorHandler, messageHandler} = useUserContext()
     const navigate = useNavigate();
 
     const sellBookFormAction = async (formData) => {
@@ -20,7 +20,7 @@ export default function Sell() {
         await create(bookData);
 
         navigate('/books/catalog');
-        
+        messageHandler('Book posted!')
       }catch(err){
         errorHandler(err.message)
       }

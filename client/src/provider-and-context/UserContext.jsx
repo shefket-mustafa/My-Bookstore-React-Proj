@@ -8,6 +8,7 @@ import { createContext, useContext } from "react"
         accessToken: '',
         bookDetails: '',
         isAuthenticated: Boolean,
+        messageHandler: () => null,
         detailsHandler: () => null,
         logoutUserHandler: () => null,
         loginUserDataHandler: () => null,

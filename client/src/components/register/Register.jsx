@@ -8,7 +8,7 @@ import { useState } from 'react';
 export default function Register() {
   const navigate = useNavigate();
   const { register } = useRegister();
-  const { registerUserDataHandler, errorHandler } = useUserContext();
+  const { registerUserDataHandler, errorHandler, messageHandler } = useUserContext();
   
   const [email, setEmail] = useState('');
 
@@ -28,7 +28,7 @@ export default function Register() {
       const response = await register(email, password);
       registerUserDataHandler(response);
       navigate('/');
-
+      messageHandler('Successful registration!')
     }catch(err){
       errorHandler(err.message)
     }

@@ -9,7 +9,7 @@
       const {getBookLikes} = useGetBookLikes();
       const {likeBook} = useLikeBook();
       const {hasLikedBook} = useHasUserLikedBook();
-
+      const {messageHandler} = useUserContext();
       const navigate = useNavigate()
       
       const [likes, setLikes] = useState(0);
@@ -61,18 +61,20 @@
       
           const updatedCount = await getBookLikes(book._id);
           setLikes(updatedCount);
+          messageHandler('Book liked!');
         } catch (err) {
           errorHandler(err.message);
         }
       };
 
-      const deleteAbook = () =>{
+      const deleteAbook = async () =>{
 
         const confirmation = confirm('Are you sure you want to delete this book?');
 
           if(confirmation){
-              deleteHandler(bookId)
-              navigate('/books/catalog')  
+              await deleteHandler(bookId);
+              navigate('/books/catalog');
+            messageHandler('Book deleted!');
           }  
       }
     

@@ -7,7 +7,7 @@ import { useState } from "react";
 export default function Login() {
   const navigate = useNavigate();
   const { login } = useLogin();
-  const { loginUserDataHandler, errorHandler } = useUserContext();
+  const { loginUserDataHandler, errorHandler, messageHandler } = useUserContext();
 
   const [email, setEmail] = useState('')
 
@@ -18,6 +18,8 @@ export default function Login() {
       const response = await login(email, password);
       loginUserDataHandler(response);
       navigate("/");
+      messageHandler('Successful login!')
+
     } catch (err) {
       errorHandler(err.message);
     }
