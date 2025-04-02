@@ -1,0 +1,85 @@
+.about-section {
+    position: relative;
+    min-height: 100vh;
+    padding: 40px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    background-color: #000;
+  }
+  
+  
+  .about-bg-box {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('../../../public/images/about-page-image.webp'); /* use your image here */
+    background-size: cover;
+    background-position: center;
+    z-index: 1;
+  }
+  
+  
+  .about-bg-box::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to right, rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0.65));
+    z-index: 2;
+  }
+  
+  .about-container {
+    position: relative;
+    z-index: 3;
+    width: 100%;
+    max-width: 1200px;
+    padding: 30px;
+    
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    
+  }
+  
+  
+  .about-box {
+    flex: 1 1 30%;
+    margin: 15px;
+    padding: 20px;
+    border-radius: 10px;
+    background-color: rgba(255, 255, 255, 0.85);
+
+    color: #333;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+  }
+  
+  .about-box h2 {
+    color: #2c7873;
+    margin-bottom: 15px;
+  }
+  
+  .about-box ul {
+    padding-left: 20px;
+    margin-top: 10px;
+  }
+  
+  .map-wrapper {
+    margin-top: 40px;
+    width: 100%;
+    max-width: 100%;
+    height: 400px;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+  }
+  
+  
+  
