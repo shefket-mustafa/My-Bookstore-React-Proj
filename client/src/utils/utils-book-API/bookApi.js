@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
-import { del, get, post, put, requester } from "../utils/requester";
-import { useUserContext } from "../provider-and-context/UserContext";
+import { del, get, post, put, requester } from "../requester";
+import { useUserContext } from "../../provider-and-context/UserContext";
 
 const baseUrl = 'http://localhost:3030/data/books';
 
@@ -57,6 +57,7 @@ export const useDeleteBook = () => {
 
     const deleteBook = async (id) => {
         return await del(`${baseUrl}/${id}`)
+        
     }
 
     return {deleteBook}

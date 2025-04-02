@@ -1,5 +1,5 @@
 import '../catalog/catalog.css';
-import { useBooks, useSearchBooks } from '../../utils-book-API/bookApi';
+import { useBooks, useSearchBooks } from '../../utils/utils-book-API/bookApi.js';
 import CatalogItems from './catalog-item/CatalogItems';
 import { useEffect, useState } from 'react';
 import Pagination from '../pagination/Pagination';

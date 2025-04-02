@@ -1,6 +1,6 @@
 import { Link, useNavigate } from "react-router";
 import { useUserContext } from "../../provider-and-context/UserContext";
-import { useLogout } from "../../utils-API/authApi";
+import { useLogout } from "../../utils/utils-auth-api/authApi.js";
 
 export default function Header() {
   const { isAuthenticated } = useUserContext();

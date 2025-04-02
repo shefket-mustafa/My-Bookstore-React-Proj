@@ -1,8 +1,8 @@
 import { useNavigate } from 'react-router';
-import { useSellBook } from '../../utils-book-API/bookApi';
+import { useSellBook } from '../../utils//utils-book-API/bookApi.js';
 import '../sell/sell.css'
 import { useUserContext } from '../../provider-and-context/UserContext';
-import { registerValidator, sellValidator } from '../../validators/validator';
+import { registerValidator, sellValidator } from '../../utils/validators/validator.js';
 
 export default function Sell() {
 

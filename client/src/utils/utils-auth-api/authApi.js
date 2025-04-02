@@ -1,6 +1,6 @@
 
-import { get, post } from "../utils/requester.js";
-import { useUserContext } from "../provider-and-context/UserContext.jsx";
+import { get, post } from "../requester.js";
+import { useUserContext } from "../../provider-and-context/UserContext.jsx";
 import { useEffect, useState } from "react";
 
 

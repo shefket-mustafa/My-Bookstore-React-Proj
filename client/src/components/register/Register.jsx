@@ -1,8 +1,8 @@
 import { Link, useNavigate } from 'react-router';
-import { useRegister } from '../../utils-API/authApi';
+import { useRegister } from '../../utils/utils-auth-api/authApi.js';
 import './register.css'
 import { useUserContext } from '../../provider-and-context/UserContext';
-import { registerValidator } from '../../validators/validator';
+import { registerValidator } from '../../utils/validators/validator.js';
 import { useState } from 'react';
 
 export default function Register() {
