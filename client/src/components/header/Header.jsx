@@ -3,13 +3,14 @@ import { useUserContext } from "../../provider-and-context/UserContext";
 import { useLogout } from "../../utils/utils-auth-api/authApi.js";
 
 export default function Header() {
-  const { isAuthenticated } = useUserContext();
+  const { isAuthenticated, messageHandler } = useUserContext();
   const { logout } = useLogout();
   const navigate = useNavigate();
 
   const logoutHandler = async() => {
     await logout();
     navigate('/')
+    messageHandler('Logged out!')
   }
 
   return (
