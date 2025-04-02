@@ -3,11 +3,13 @@ import { useBooks, useSearchBooks } from '../../utils-book-API/bookApi';
 import CatalogItems from './catalog-item/CatalogItems';
 import { useEffect, useState } from 'react';
 import Pagination from '../pagination/Pagination';
+import { useUserContext } from '../../provider-and-context/UserContext';
 
 export default function Catalog() {
 
   const {search} = useSearchBooks();
   const  {books}  = useBooks();
+  const {errorHandler} = useUserContext()
 
     const [searchValue, setSearchValue] = useState('');
     const [filteredBooks, setFilteredBooks] = useState([]);
@@ -32,8 +34,13 @@ const totalPages = Math.ceil(filteredBooks.length / pageSize);
         setFilteredBooks(books)
         return
       } 
+      try{
         const result = await search(searchValue)
         setFilteredBooks(result)
+
+      }catch(err){
+        errorHandler(err.message)
+      }
     } 
 
     

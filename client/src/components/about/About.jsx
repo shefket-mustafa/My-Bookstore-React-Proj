@@ -54,7 +54,7 @@ export default function About() {
             allowFullScreen=""
             loading="lazy"
             referrerPolicy="no-referrer-when-downgrade"
-            title="Bookstore Location"
+            title="Bookstore Location" 
           ></iframe>
         </div>
         
