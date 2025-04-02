@@ -1,9 +1,10 @@
 import { useEffect, useState } from "react";
 import { UserContext } from "./UserContext";
 import ErrorModal from "../components/error-modal/ErrorModal";
-import { useDeleteBook, useEditBook, useGetBook } from "../utils-book-API/bookApi";
+import { useDeleteBook, useEditBook, useGetBook } from "../utils/utils-book-API/bookApi.js";
 import { useNavigate } from "react-router";
 import { setNavigate } from "../utils/requester";
+import SuccessModal from "../components/error-modal/success-modal/SuccessModal.jsx";
 
     export default function UserProvider({children}) {
 
@@ -11,6 +12,8 @@ import { setNavigate } from "../utils/requester";
       const [userData, setUserData] = useState({});
       const [bookDetails, setBookDetails] = useState({});
       const [error, setError] = useState('');
+      const [successMessage, setSuccessMessage] = useState('');
+
       const {getBook} = useGetBook();
       const {editBook} = useEditBook();
       const {deleteBook} = useDeleteBook();
@@ -48,8 +51,19 @@ import { setNavigate } from "../utils/requester";
 
       const detailsHandler = async (bookId) => {
 
+        try {
+
           const result = await getBook(bookId);
           setBookDetails(result)
+        }catch(err){
+          if (err.message === 'Resource not found') {
+            setBookDetails({});
+            return;
+          } else {
+
+            errorHandler(err.message)
+          }
+        }
       }
 
       const editHandler = async(formData,id) => {
@@ -64,7 +78,12 @@ import { setNavigate } from "../utils/requester";
       const deleteHandler = async(id) => {
         await deleteBook(id);
         setBookDetails({})
-        
+      }
+
+      const messageHandler = (message) => {
+        setSuccessMessage(message);
+
+        setTimeout(()=>setSuccessMessage(''),2000);
       }
       
       return (
@@ -74,6 +93,7 @@ import { setNavigate } from "../utils/requester";
           editHandler,
           // loadBookByIdEdit,
           deleteHandler,
+          messageHandler,
           detailsHandler,
           loginUserDataHandler, 
           logoutUserHandler, 
@@ -83,6 +103,7 @@ import { setNavigate } from "../utils/requester";
           }}>
 
           {error && <ErrorModal message={error} />}
+          {successMessage && <SuccessModal message={successMessage}/>}
           {children}
         </UserContext.Provider>
           
