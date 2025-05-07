@@ -38,6 +38,14 @@ My-Bookstore-React-Proj/
 
 ---
 
+## 🌐 Live Demo
+
+Check out Moviefy live here: [my-bookstore-react-proj.vercel.app](my-bookstore-react-proj.vercel.app)
+
+🧠 Note: Full CRUD functionality requires the local SoftUni backend to run. This deployment showcases the UI only.
+
+---
+
 ## 📦 Getting Started
 
 ### 1. Clone the repo
