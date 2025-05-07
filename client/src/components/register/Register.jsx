@@ -78,7 +78,7 @@ export default function Register() {
             </label>
 
             <button type="submit">Register In</button>
-            <p className="redirect-login"> Already have an account? <Link className='log-a' href="/login">Log in</Link></p>
+            <p className="redirect-login"> Already have an account? <Link className='log-a' to="/login">Log in</Link></p>
           </form>
         </div>
       </div>
