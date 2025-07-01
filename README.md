@@ -3,7 +3,7 @@
 Welcome to **My Bookstore**, a full-featured web application built using **JavaScript** and **React**. This app allows users to browse, post, edit, delete, and search books for sale, with authentication and likes functionality included.
 
 ---
-PROJECT IS UNDER MAINTANENCE AS SERVER BEING MIGRATED FROM A MOCK SERVER TO A SELF-WRITTEN MONGODB/EXPRESS.
+PROJECT IS UNDER MAINTANENCE AS SERVER BEING MIGRATED FROM A MOCK SERVER TO A SELF-WRITTEN WITH MONGODB/EXPRESS.
 ---
 
 ## 🚀 Features
