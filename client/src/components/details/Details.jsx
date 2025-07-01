@@ -28,10 +28,10 @@
 
     
       useEffect(() => {
-        if (book._id !== bookId) {
+        if (!book._id || book._id !== bookId) {
           detailsHandler(bookId);
         }
-      }, [bookId,book._id,detailsHandler]);
+      }, [bookId]);
 
       useEffect(() => {
         const fetchLikeData = async () => {

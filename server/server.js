@@ -2,8 +2,10 @@
     import express from "express";
     import cors from "cors";
     import mongoose from "mongoose";
-    import authRoutes from "./routes/AuthRoutes.js";
+    import authRoutes from "./routes/authRoutes.js";
     import bookRoutes from "./routes/BooksRoutes.js";
+import likeRoutes from "./routes/likesRoutes.js";
+    
 
     dotenv.config();
 
@@ -16,6 +18,7 @@
 
     app.use('/users', authRoutes)
     app.use('/books', bookRoutes)
+    app.use('/data/likes', likeRoutes);
 
     mongoose.connect(process.env.MONGO_URI)
     .then(() => {

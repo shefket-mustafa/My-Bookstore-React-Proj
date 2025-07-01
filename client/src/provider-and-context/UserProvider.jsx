@@ -54,13 +54,14 @@ import SuccessModal from "../components/error-modal/success-modal/SuccessModal.j
         try {
 
           const result = await getBook(bookId);
+          console.log("📘 Book fetched: ", result); // debug here
           setBookDetails(result)
         }catch(err){
+          console.error("❌ Failed to fetch book details:", err);
           if (err.message === 'Resource not found') {
             setBookDetails({});
             return;
           } else {
-
             errorHandler(err.message)
           }
         }
