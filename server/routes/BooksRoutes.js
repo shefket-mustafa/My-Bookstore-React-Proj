@@ -15,6 +15,17 @@ bookRoutes.get('/', async (req,res) => {
     }
 })
 
+bookRoutes.get('/:id', async (req,res) => {
+    try {
+        const book = await Book.find(req.params.id);
+        res.json(book);
+
+    }catch(err){
+        
+        res.status(500).json({message: 'Failed to fetch book', err})
+    }
+})
+
 bookRoutes.post('/', async (req, res) => {
     try {
       const book = await Book.create(req.body);

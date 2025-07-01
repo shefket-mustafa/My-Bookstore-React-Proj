@@ -15,7 +15,7 @@ export default function CatalogItems({book}) {
     <p>by {book.author}</p>
     <p className="price">${book.price}</p>
 
-  <Link to={`/books/details/${book._id}`} className="details-button">Details</Link> 
+  <Link to={`/books/${book._id}`} className="details-button">Details</Link> 
     
     {/* <>
      <button className="buy-button">Edit</button>
