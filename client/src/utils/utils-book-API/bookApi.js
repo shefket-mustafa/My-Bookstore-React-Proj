@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { del, get, post, put, requester } from "../requester";
 import { useUserContext } from "../../provider-and-context/UserContext";
 
-const baseUrl = 'http://localhost:3030/data/books';
+const baseUrl = 'http://localhost:3030/books';
 
     
 

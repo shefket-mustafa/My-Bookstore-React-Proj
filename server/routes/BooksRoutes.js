@@ -16,13 +16,10 @@ bookRoutes.get('/', async (req,res) => {
 })
 
 bookRoutes.post('/', async (req, res) => {
-    console.log("✅ Received POST at /books");
-    console.log("📦 Body:", req.body);
     try {
       const book = await Book.create(req.body);
       res.status(201).json(book);
     } catch (err) {
-        console.error("❌ Error creating book:", err);
       res.status(400).json({ message: 'Failed to create book',err });
     }
   });
