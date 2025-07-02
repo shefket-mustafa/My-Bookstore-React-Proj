@@ -23,7 +23,6 @@ import SuccessModal from "../components/error-modal/success-modal/SuccessModal.j
       useEffect(()=>{
         const storedAuth = JSON.parse(localStorage.getItem('auth'));
         if(storedAuth?.accessToken){
-
           setUserData(storedAuth)
         }
       },[])

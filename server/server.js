@@ -1,4 +1,4 @@
-    import dotenv from "dotenv" 
+import './config.js'
     import express from "express";
     import cors from "cors";
     import mongoose from "mongoose";
@@ -7,11 +7,12 @@
 import likeRoutes from "./routes/likesRoutes.js";
     
 
-    dotenv.config();
 
     const app = express();
     const port = process.env.PORT || 3030;
     console.log(process.env);
+
+    
 
     app.use(cors());
     app.use(express.json());

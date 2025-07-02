@@ -45,7 +45,10 @@ export default function Register() {
 
         <div className="register-form-box">
           <h3>Register</h3>
-          <form action={registerHandler}  className="register-form">
+          <form onSubmit={(e) => {
+            e.preventDefault()
+            registerHandler(new FormData(e.target))
+          }}  className="register-form">
             <label>
               Email:
               <input

@@ -11,7 +11,6 @@ export const useLogin =  () => {
     const login = async (email, password) => {
         
             const response = await post(`${baseUrl}/login`, { email,password });
-            
             localStorage.setItem('auth', JSON.stringify(response))
             return response;
     };
