@@ -7,10 +7,8 @@ const baseUrl = 'http://localhost:3030/data/likes';
 
 export function useGetBookLikes() {
     const getBookLikes = async (bookId) => {
-        const query = encodeURIComponent(`bookId="${bookId}"`);
-        const url = `${baseUrl}?where=${query}`;
-        const result = await get(url);
-        return result.length;
+      const response = await get(`${baseUrl}/count/${bookId}`);
+      return response.count;
     };
   
     return { getBookLikes };
@@ -30,11 +28,13 @@ export function useGetBookLikes() {
 
 
 export function useLikeBook() {
-    const likeBook = async (bookId) => {
-        const result = await post(baseUrl, { bookId }); 
-        return result;
+    const likeBook = async (bookId, userId) => {
+      return await post(baseUrl, {
+        bookId,
+        _ownerId: userId, 
+      });
     };
-
+  
     return { likeBook };
-}
+  }
     

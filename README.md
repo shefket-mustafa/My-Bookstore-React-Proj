@@ -53,7 +53,7 @@ Check out Moviefy live here: [my-bookstore-react-proj.vercel.app](https://my-boo
 ### 1. Clone the repo
 
 ```bash
-git clone https://github.com/yourusername/My-Bookstore-React-Proj.git
+git clone git@github.com:shefket-mustafa/My-Bookstore-React-Proj.git
 cd My-Bookstore-React-Proj
 ```
 
