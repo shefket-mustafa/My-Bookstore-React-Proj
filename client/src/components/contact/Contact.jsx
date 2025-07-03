@@ -1,10 +1,13 @@
 import { useNavigate } from 'react-router';
 import './contact.css'
+import { useUserContext } from '../../provider-and-context/UserContext';
 
 export default function Contact() {
   const navigate = useNavigate();
+  const {messageHandler} = useUserContext();
 
   const submitHandler = () => {
+    messageHandler("Message sent!")
     navigate('/')
   }
 
@@ -53,6 +56,6 @@ export default function Contact() {
       </div>
     </div>
   </section>
-  {/* <!-- end contact section --> */}</>
+  </>
     );
 }
