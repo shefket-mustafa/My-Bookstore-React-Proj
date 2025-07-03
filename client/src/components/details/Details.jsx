@@ -30,8 +30,10 @@ export default function Details() {
   const { likeBook } = useLikeBook();
   const { hasLikedBook } = useHasUserLikedBook();
 
-  const userId = user?._id || null;
-  const isOwner = userId && book._ownerId === userId;
+  const userId = user?.user?._id;
+const accessToken = user?.accessToken;
+
+const isOwner = userId && book._ownerId === userId;
 
   // 🟡 Load the book when ID changes
   useEffect(() => {
@@ -64,14 +66,14 @@ export default function Details() {
   }, [book._id, userId]);
 
   const likeHandler = async () => {
-    if (!book._id || !user?._id) {
+    if (!book._id || !userId) {
       console.warn("❌ Cannot like, missing bookId or userId");
       return;
     }
   
     try {
-      console.log("Sending like for:", book._id, user._id);
-      await likeBook(book._id, user._id);
+      console.log("Sending like for:", book._id, userId);
+      await likeBook(book._id, userId);
       setHasLiked(true);
   
       const updatedCount = await getBookLikes(book._id);
@@ -94,6 +96,13 @@ export default function Details() {
       messageHandler("Book deleted!");
     }
   };
+
+  console.log("🔍 user:", user);
+console.log("🔍 userId:", userId);
+console.log("🔍 accessToken:", accessToken);
+console.log("🔍 isOwner:", isOwner);
+console.log("🔍 hasLiked:", hasLiked);
+console.log("🔍 likesLoading:", likesLoading);
 
   if (bookLoading || !book._id) {
     return (
@@ -146,22 +155,9 @@ export default function Details() {
             </div>
           )}
 
-{process.env.NODE_ENV !== 'production' && (
-  <div style={{ color: 'white', fontSize: '0.8rem' }}>
-    <p>Debug:</p>
-    <p>book._id: {String(book._id)}</p>
-    <p>user._id: {String(user?._id)}</p>
-    <p>isOwner: {String(isOwner)}</p>
-    <p>hasLiked: {String(hasLiked)}</p>
-    <p>likesLoading: {String(likesLoading)}</p>
-  </div>
-)}
-
-{!bookLoading && book._id && user?._id && !isOwner && !hasLiked && !likesLoading && (
+{accessToken && userId && !isOwner && !hasLiked && !likesLoading && (
   <div className="link-button">
-    <button onClick={likeHandler} className="like-link">
-      Like
-    </button>
+    <button onClick={likeHandler} className="like-link">Like</button>
   </div>
 )}
         </div>
