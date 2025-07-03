@@ -39,11 +39,17 @@ likeRoutes.get('/', async (req, res) => {
         return res.status(400).json({ message: 'Missing bookId or _ownerId' });
       }
   
-      const like = await Like.create({ bookId, _ownerId }); // ✅ store _ownerId
+      const existing = await Like.findOne({ bookId, _ownerId });
+      if (existing) {
+        return res.status(409).json({ message: 'User already liked this book' });
+      }
+  
+      const like = await Like.create({ bookId, _ownerId });
       res.status(201).json(like);
     } catch (err) {
       res.status(400).json({ message: 'Failed to create like', err });
     }
   });
+  
 
   export default likeRoutes
