@@ -11,6 +11,7 @@ import SuccessModal from "../components/error-modal/success-modal/SuccessModal.j
       const navigate = useNavigate();
       const [userData, setUserData] = useState({});
       const [bookDetails, setBookDetails] = useState({});
+      const [bookLoading, setBookLoading] = useState(false);
       const [error, setError] = useState('');
       const [successMessage, setSuccessMessage] = useState('');
 
@@ -51,9 +52,9 @@ import SuccessModal from "../components/error-modal/success-modal/SuccessModal.j
       const detailsHandler = async (bookId) => {
 
         try {
-
+          setBookLoading(true);
+          setBookDetails({});
           const result = await getBook(bookId);
-          console.log("📘 Book fetched: ", result); // debug here
           setBookDetails(result)
         }catch(err){
           console.error("❌ Failed to fetch book details:", err);
@@ -63,6 +64,8 @@ import SuccessModal from "../components/error-modal/success-modal/SuccessModal.j
           } else {
             errorHandler(err.message)
           }
+        }finally {
+          setBookLoading(false)
         }
       }
 
@@ -98,7 +101,8 @@ import SuccessModal from "../components/error-modal/success-modal/SuccessModal.j
           loginUserDataHandler, 
           logoutUserHandler, 
           errorHandler, 
-          registerUserDataHandler, 
+          registerUserDataHandler,
+          bookLoading, 
           isAuthenticated: !!userData.accessToken
           }}>
 

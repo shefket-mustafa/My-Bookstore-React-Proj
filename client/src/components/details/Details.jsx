@@ -6,6 +6,7 @@
 
   export default function Details() {
       const {bookId} = useParams();
+      const [likesLoading, setLikesLoading] = useState(true); 
       const {getBookLikes} = useGetBookLikes();
       const {likeBook} = useLikeBook();
       const {hasLikedBook} = useHasUserLikedBook();
@@ -18,6 +19,7 @@
       const {
         user,
         book,
+        bookLoading,
         detailsHandler,
         deleteHandler,
         errorHandler
@@ -34,24 +36,31 @@
       }, [bookId]);
 
       useEffect(() => {
+        if (!book._id || !user._id) return;
+      
         const fetchLikeData = async () => {
-          if (!book._id) return;
           try {
+            setLikesLoading(true);
+      
             const count = await getBookLikes(book._id);
             setLikes(count);
       
-            if (user && !isOwner) {
+            const isOwner = user._id === book._ownerId;
+            if (!isOwner) {
               const liked = await hasLikedBook(book._id, user._id);
-              
               setHasLiked(liked);
             }
           } catch (err) {
-            errorHandler(err.message);
+            // avoid errorHandler in deps — just call it directly
+            console.error("Likes error:", err.message);
+          } finally {
+            setLikesLoading(false);
           }
         };
       
         fetchLikeData();
-      }, [book._id, getBookLikes, isOwner, hasLikedBook, user,errorHandler]);
+      }, [book._id, user._id]);
+      
 
     
       const likeHandler = async () => {
@@ -78,6 +87,16 @@
           }  
       }
     
+      if (bookLoading || !book._id) {
+        return (
+          <section className="details-wrapper">
+            <div className="details-bg-box"></div>
+            <div className="details-card">
+              <p style={{ color: 'white', textAlign: 'center' }}>Loading book details...</p>
+            </div>
+          </section>
+        );
+      }
 
     return (
       <section className="details-wrapper">
@@ -92,7 +111,8 @@
             <h2 className="details-title" style={{ color: 'white'}}>{book.title}</h2>
             <p className="details-author"><strong style={{ color: '#2c7873'}}>Author: </strong> {book.author}</p>
             
-            <p className="details-likes"><strong style={{ color: '#2c7873'}}>Likes: </strong> {likes}</p> 
+            <p className="details-likes"><strong style={{ color: '#2c7873'}}>Likes: 
+            </strong> {likesLoading ? 'Loading...' : likes}</p> 
             <p className="details-price"><strong style={{ color: '#2c7873'}}>Price: </strong> ${book.price}</p>
             <p className="details-description"><strong style={{ color: '#2c7873'}}>Comment:</strong></p>
             <p>{book.comment}</p>
@@ -101,7 +121,7 @@
               <Link className='edit-link' to={`/books/edit/${book._id}`} >Edit</Link>
               <button onClick={deleteAbook} className='delete-link' >Delete</button>
           </div>}
-          {user.accessToken && !isOwner && !hasLiked && (
+          {user.accessToken && !isOwner && !hasLiked && !likesLoading && (
           <div className="link-button">
           <button onClick={likeHandler} className="like-link">Like</button>
           </div>

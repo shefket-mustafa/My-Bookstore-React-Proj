@@ -6,8 +6,16 @@ const bookRoutes = express.Router();
 
 bookRoutes.get('/', async (req,res) => {
     try {
-        const books = await Book.find();
-        res.json(books);
+
+      const { title } = req.query;
+
+        let books = await Book.find();
+
+        if(title){
+          const searchTerm = title.toLowerCase();
+          books = books.filter(book => book.title.toLowerCase().includes(searchTerm));
+        }
+        res.status(200).json(books);
 
     }catch(err){
         

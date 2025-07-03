@@ -67,11 +67,10 @@ export const useSearchBooks = () => {
     const {errorHandler} = useUserContext();
 
     const search = async (title) => {
-        const encodedTitle = encodeURIComponent(`title LIKE "${title}"`);
 
         try{
 
-            const result = await get(`${baseUrl}?where=${encodedTitle}`);
+            const result = await get(`${baseUrl}?title=${encodeURIComponent(title)}`);
             return result;
         }catch(err){
             errorHandler(err.message)
