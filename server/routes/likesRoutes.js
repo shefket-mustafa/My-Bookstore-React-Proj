@@ -15,7 +15,14 @@ likeRoutes.get('/', async (req, res) => {
   
       const bookId = bookIdMatch[1];
   
-      const likes = await Like.find({ bookId });
+      const ownerIdMatch = where.match(/_ownerId="(.*?)"/);
+const query = { bookId };
+
+if (ownerIdMatch) {
+  query._ownerId = ownerIdMatch[1];
+}
+
+const likes = await Like.find(query);
       res.json(likes);
     } catch (err) {
       res.status(500).json({ message: 'Failed to fetch likes', err });
