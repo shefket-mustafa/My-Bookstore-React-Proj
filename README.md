@@ -1,31 +1,36 @@
-# My Bookstore React Project
+# 📚 My Bookstore React Project
 
-Welcome to **My Bookstore**, a full-featured web application built using **JavaScript** and **React**. This app allows users to browse, post, edit, delete, and search books for sale, with authentication and likes functionality included.
+Welcome to **My Bookstore**, a full-featured web application built with **React**, **JavaScript**, **Express**, and **MongoDB**. Users can browse, post, edit, delete, and search books for sale, with authentication and like functionality built in.
 
 ---
-PROJECT IS UNDER MAINTANENCE AS SERVER BEING MIGRATED FROM A MOCK SERVER TO A SELF-WRITTEN WITH MONGODB/EXPRESS.
+
+## 🛠 Backend Migration Status
+
+✅ The project has been **successfully migrated** from SoftUni's mock backend to a custom **Express.js + MongoDB** backend.  
+
 ---
 
 ## 🚀 Features
 
-- 🔐 User authentication (register, login, logout)
-- 📚 Create, edit, delete books (CRUD functionality)
-- ❤️ Like system for books
-- 🔍 Search books by title
-- 📦 Paginated catalog view
-- 🎨 Responsive UI using a reworked template design
-- 🌐 Context API for global state management
+- 🔐 User Authentication (Register, Login, Logout)
+- 📚 Full Book CRUD (Create, Read, Update, Delete)
+- ❤️ Like System (prevent duplicate likes per user)
+- 🔍 Book Search (by title, case-insensitive)
+- 🖼️ Responsive UI using a reworked design template
+- 🌐 Global State via Context API
 
 ---
 
 ## 🛠 Technologies Used
 
 - **React 18+**
-- **React Router**
-- **JavaScript (ES6+)**
+- **React Router DOM**
 - **Context API**
-- **Custom CSS and third-party template**
-- **Vite (for client development server)**
+- **JavaScript (ES6+)**
+- **Custom CSS + Template Styling**
+- **Vite (Client Dev Server)**
+- **Express.js (Backend Server)**
+- **MongoDB + Mongoose (Database)**
 
 ---
 
