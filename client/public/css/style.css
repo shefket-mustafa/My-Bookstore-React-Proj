@@ -90,7 +90,7 @@ a:focus {
           box-shadow: none;
 }
 
-/*header section*/
+
 .hero_area {
   position: relative;
   min-height: 100vh;
@@ -1124,6 +1124,7 @@ a:focus {
 
 /* Responsive Design */
 @media (max-width: 600px) {
+  
   .error-container h1 {
     font-size: 45px;
   }
@@ -1139,6 +1140,13 @@ a:focus {
 
   .btn-home, .btn-support {
     width: 100%;
+  }
+}
+@media (max-width: 768px) {
+  .slider_section {
+    min-height: 100vh;  
+    padding-top: 60px;
+    padding-bottom: 60px;
   }
 }
 
