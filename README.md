@@ -52,6 +52,9 @@ My-Bookstore-React-Proj/
 
 Check out Moviefy live here: [my-bookstore-react-proj.vercel.app](https://my-bookstore-react-proj.vercel.app)
 
+- 🖥 **Frontend (Vercel)**: [my-bookstore-react-proj.vercel.app](https://my-bookstore-react-proj.vercel.app)
+- ⚙️ **Backend (Render)**: [my-bookstore-react-proj-5.onrender.com](https://my-bookstore-react-proj-5.onrender.com)
+
 ---
 
 ## 📦 Getting Started
