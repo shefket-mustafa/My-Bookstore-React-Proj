@@ -2,9 +2,9 @@ import './config.js'
     import express from "express";
     import cors from "cors";
     import mongoose from "mongoose";
-    import authRoutes from "./routes/authRoutes.js";
-    import bookRoutes from "./routes/BooksRoutes.js";
-    import likeRoutes from "./routes/likesRoutes.js"
+    import authRoutes from "../server/routes/authRoutes.js";
+    import bookRoutes from "../server/routes/BooksRoutes.js";
+    import likeRoutes from "../server/routes/likesRoutes.js"
     
 
 
