@@ -19,16 +19,26 @@ export const useBooks = () => {
 
 }
 
-//Create a book
 export const useSellBook = () => {
-
+    const { user } = useUserContext();
+  
     const create = async (bookData) => {
-        
-        const result = await post(baseUrl,bookData);
+      const ownerId = user?.user?._id;
+  
+      if (!ownerId) throw new Error("User not authenticated");
+  
+      const completeData = {
+        ...bookData,
+        _ownerId: ownerId, 
+      };
+  
+      const result = await post(baseUrl, completeData);
+      return result;
     };
-
-    return {create};
-};
+  
+    return { create };
+  };
+  
 
 //Get one book
 export const useGetBook = () => {

@@ -31,16 +31,13 @@ export default function Details() {
   const { hasLikedBook } = useHasUserLikedBook();
 
   const userId = user?.user?._id;
-const accessToken = user?.accessToken;
+  const accessToken = user?.accessToken;
+  const isOwner = userId && book._ownerId === userId;
 
-const isOwner = userId && book._ownerId === userId;
-
-  // 🟡 Load the book when ID changes
   useEffect(() => {
     detailsHandler(bookId);
   }, [bookId]);
 
-  // ✅ Load likes AFTER book is loaded
   useEffect(() => {
     if (!book._id) return;
 
@@ -70,23 +67,18 @@ const isOwner = userId && book._ownerId === userId;
       console.warn("❌ Cannot like, missing bookId or userId");
       return;
     }
-  
+
     try {
-      console.log("Sending like for:", book._id, userId);
       await likeBook(book._id, userId);
       setHasLiked(true);
-  
       const updatedCount = await getBookLikes(book._id);
       setLikes(updatedCount);
-  
-      messageHandler('Book liked!');
+      messageHandler("Book liked!");
     } catch (err) {
       console.error("❌ Like error:", err.message);
       errorHandler(err.message);
     }
   };
-  
-  
 
   const deleteAbook = async () => {
     const confirmation = confirm("Are you sure you want to delete this book?");
@@ -97,12 +89,8 @@ const isOwner = userId && book._ownerId === userId;
     }
   };
 
-  console.log("🔍 user:", user);
-console.log("🔍 userId:", userId);
-console.log("🔍 accessToken:", accessToken);
-console.log("🔍 isOwner:", isOwner);
-console.log("🔍 hasLiked:", hasLiked);
-console.log("🔍 likesLoading:", likesLoading);
+  console.log(userId);
+  console.log(isOwner);
 
   if (bookLoading || !book._id) {
     return (
@@ -122,7 +110,11 @@ console.log("🔍 likesLoading:", likesLoading);
       <div className="details-bg-box"></div>
       <div className="details-card">
         <div className="details-image-box">
-          <img src={book.imageUrl} alt={book.title} className="details-image" />
+          <img
+            src={book.imageUrl}
+            alt={book.title}
+            className="details-image"
+          />
         </div>
 
         <div className="details-info">
@@ -130,14 +122,15 @@ console.log("🔍 likesLoading:", likesLoading);
             {book.title}
           </h2>
           <p className="details-author">
-            <strong style={{ color: "#2c7873" }}>Author: </strong> {book.author}
+            <strong style={{ color: "#2c7873" }}>Author: </strong>
+            {book.author}
           </p>
           <p className="details-likes">
             <strong style={{ color: "#2c7873" }}>Likes: </strong>
             {likesLoading ? "Loading..." : likes}
           </p>
           <p className="details-price">
-            <strong style={{ color: "#2c7873" }}>Price: </strong> ${book.price}
+            <strong style={{ color: "#2c7873" }}>Price: </strong>${book.price}
           </p>
           <p className="details-description">
             <strong style={{ color: "#2c7873" }}>Comment:</strong>
@@ -155,11 +148,13 @@ console.log("🔍 likesLoading:", likesLoading);
             </div>
           )}
 
-{accessToken && userId && !isOwner && !hasLiked && !likesLoading && (
-  <div className="link-button">
-    <button onClick={likeHandler} className="like-link">Like</button>
-  </div>
-)}
+          {accessToken && userId && !isOwner && !hasLiked && !likesLoading && (
+            <div className="link-button">
+              <button onClick={likeHandler} className="like-link">
+                Like
+              </button>
+            </div>
+          )}
         </div>
       </div>
     </section>
