@@ -13,9 +13,19 @@ export default function Header() {
     messageHandler('Logged out!')
   }
 
+  const closeNavbar = () => {
+    const toggler = document.querySelector('.navbar-toggler');
+    const navbar = document.getElementById('navbarSupportedContent');
+  
+    if (navbar.classList.contains('show') && toggler) {
+      toggler.click();
+    }
+  };
+  
+
   return (
     <>
-      {/* <!-- header section starts --> */}
+      
       <header className="header_section">
         <div className="header_bottom">
           <div className="container-fluid">
@@ -30,36 +40,36 @@ export default function Header() {
                 <ul className="navbar-nav">
 
                   <li className="nav-item">
-                    <Link className="nav-link" to="/">Home</Link>
+                    <Link className="nav-link" to="/" onClick={closeNavbar}>Home</Link>
                   </li>
 
                   <li className="nav-item">
-                    <Link className="nav-link" to="/about">About</Link>
+                    <Link className="nav-link" to="/about" onClick={closeNavbar}>About</Link>
                   </li>
 
                   <li className="nav-item">
-                    <Link className="nav-link" to="/books/catalog">Catalog</Link>
+                    <Link className="nav-link" to="/books/catalog" onClick={closeNavbar}>Catalog</Link>
                   </li>
 
                   {isAuthenticated && (
                     <li className="nav-item">
-                      <Link className="nav-link" to="/books/sell">Sell</Link>
+                      <Link className="nav-link" to="/books/sell" onClick={closeNavbar}>Sell</Link>
                     </li>
                   )}
 
                   <li className="nav-item">
-                    <Link className="nav-link" to="/contact">Contact Us</Link>
+                    <Link className="nav-link" to="/contact" onClick={closeNavbar}>Contact Us</Link>
                   </li>
 
                   {!isAuthenticated ? (
                     <>
                       <li className="nav-item">
-                        <Link className="nav-link" to="/login">
+                        <Link className="nav-link" to="/login" onClick={closeNavbar}>
                           <i className="fa fa-user" aria-hidden="true"></i> Login
                         </Link>
                       </li>
                       <li className="nav-item">
-                        <Link className="nav-link" to="/register">
+                        <Link className="nav-link" to="/register" onClick={closeNavbar}>
                           <i className="fa fa-user" aria-hidden="true"></i>
                           <span>Register</span>
                         </Link>
@@ -67,7 +77,7 @@ export default function Header() {
                     </>
                   ) : (
                     <li  className="nav-item">
-                        <Link onClick={logoutHandler} className="nav-link" to="#">
+                        <Link onClick={logoutHandler} className="nav-link" to="/" >
                           <i className="fa fa-user" aria-hidden="true"></i> Logout
                         </Link>
                       </li>
