@@ -31,6 +31,9 @@ Welcome to **My Bookstore**, a full-featured web application built with **React*
 - **Vite (Client Dev Server)**
 - **Express.js (Backend Server)**
 - **MongoDB + Mongoose (Database)**
+- **JWT (Authentication Tokens)**
+- **bcrypt.js (Password Hashing)**
+- **localStorage (Frontend State Persistence)**
 
 ---
 
@@ -39,7 +42,7 @@ Welcome to **My Bookstore**, a full-featured web application built with **React*
 ```
 My-Bookstore-React-Proj/
 ├── client/         # React frontend
-├── server/         # Prebuilt backend
+├── server/         # Express + MongoDB Backend
 ├── README.md       # Project documentation
 ```
 
@@ -48,8 +51,6 @@ My-Bookstore-React-Proj/
 ## 🌐 Live Demo
 
 Check out Moviefy live here: [my-bookstore-react-proj.vercel.app](https://my-bookstore-react-proj.vercel.app)
-
-🧠 Note: Full CRUD functionality requires the local SoftUni backend to run. This deployment showcases the UI only.
 
 ---
 
@@ -92,17 +93,12 @@ The backend should be running at: `http://localhost:3030`
 
 - The UI is based on a ready-made HTML/CSS template, heavily reworked with custom styling.
 - You need to be logged in to create, edit, delete, or like books.
-- The backend is a prebuilt mock server used for development purposes.
 - You can use the following login credentials for testing:
   - **Email**: admin@abv.bg
-  - **Password**: admin 
+  - **Password**: 1234 
 - You need to be logged in to create, edit, delete, or like books.
-- The backend is a prebuilt mock server used for development purposes.
+- The backend is custom made with Express + MongoDB
 
 ---
 
-
-## 💡 Inspiration
-
-This project is a part of a learning journey through **modern frontend development** with **React**.
 
