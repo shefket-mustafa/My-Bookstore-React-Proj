@@ -101,7 +101,7 @@
     line-height: 1.6;
     word-wrap: break-word;
     overflow-wrap: break-word;
-    white-space: pre-wrap; /* ✅ wrap long words AND preserve line breaks */
+    white-space: pre-wrap; 
     max-width: 100%;
     word-break: break-word;
     min-width: 400px;
@@ -148,9 +148,40 @@
   .link-button{
     margin-top: 30px;
     display: flex;
-    justify-content: center; /* center horizontally */
-    align-self: flex-end; /* push to bottom if needed */
+    justify-content: center; 
+    align-self: flex-end; 
   }
+
+  @media (max-width: 768px) {
+    .details-card {
+      flex-direction: column;
+      padding: 20px;
+      max-width: 95vw;
+    }
+  
+    .details-info p {
+      min-width: unset;
+      width: 100%;
+    }
+  
+    .details-buttons,
+    .link-button {
+      flex-direction: column;
+      align-items: center;
+    }
+  
+    .details-buttons button,
+    .like-link {
+      width: 100%;
+      max-width: 300px;
+    }
+  
+    .details-image {
+      max-width: 80%;
+    }
+  }
+  
+  
  
   
   
