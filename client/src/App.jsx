@@ -22,6 +22,7 @@ import ErrorModal from "./components/error-modal/ErrorModal.jsx"
 import SuccessModal from "./components/error-modal/success-modal/SuccessModal.jsx"
 import { PopUpProvider } from "./provider-and-context/PopUpProvider.jsx"
 import { usePopUpContext } from "./provider-and-context/PopUpContext.jsx"
+import Modals from "./components/modals/Modals.jsx"
 
 
 
@@ -34,11 +35,10 @@ function App() {
   
   return (
     <>
-{error && <ErrorModal message={error} />}
-          {successMessage && <SuccessModal message={successMessage}/>}
     <PopUpProvider>
 <AuthProvider>
   <BookProvider>
+    <Modals />
 <Header />
 <ManageScrollPosition />
 
