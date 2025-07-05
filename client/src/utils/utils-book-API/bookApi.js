@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { del, get, post, put } from "../requester";
 import { useAuthContext } from "../../provider-and-context/AuthContext";
-import { useErrorMessageHandler } from "../hooks/util-hooks";
+import { usePopUpContext } from "../../provider-and-context/PopUpContext";
 
 const baseUrl = 'https://my-bookstore-react-proj-5.onrender.com/books';
 
@@ -75,7 +75,7 @@ export const useDeleteBook = () => {
 };
 
 export const useSearchBooks = () => {
-    const {errorMessageHandler} = useErrorMessageHandler();
+    const {errorMessageHandler} = usePopUpContext();
 
     const search = async (title) => {
 

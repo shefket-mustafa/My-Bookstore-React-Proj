@@ -3,13 +3,13 @@
   import CatalogItems from './catalog-item/CatalogItems';
   import { useEffect, useState } from 'react';
   import Pagination from '../pagination/Pagination';
-import { useErrorMessageHandler } from '../../utils/hooks/util-hooks.js';
+import { usePopUpContext } from '../../provider-and-context/PopUpContext.jsx';
 
   export default function Catalog() {
 
     const {search} = useSearchBooks();
     const  {books}  = useBooks();
-    const {errorMessageHandler} = useErrorMessageHandler()
+    const {errorMessageHandler} = usePopUpContext()
 
       const [searchValue, setSearchValue] = useState('');
       const [filteredBooks, setFilteredBooks] = useState([]);

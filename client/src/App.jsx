@@ -20,7 +20,8 @@ import AuthProvider from "./provider-and-context/AuthProvider"
 import BookProvider from "./provider-and-context/BooksProvider"
 import ErrorModal from "./components/error-modal/ErrorModal.jsx"
 import SuccessModal from "./components/error-modal/success-modal/SuccessModal.jsx"
-import { useErrorMessageHandler, useSuccessMessageHandler } from "./utils/hooks/util-hooks.js"
+import { PopUpProvider } from "./provider-and-context/PopUpProvider.jsx"
+import { usePopUpContext } from "./provider-and-context/PopUpContext.jsx"
 
 
 
@@ -28,13 +29,14 @@ import { useErrorMessageHandler, useSuccessMessageHandler } from "./utils/hooks/
 function App() {
   
 
-  const {error} = useErrorMessageHandler()
-  const {successMessage} = useSuccessMessageHandler();
+  const {error, successMessage} = usePopUpContext()
+  
   
   return (
     <>
 {error && <ErrorModal message={error} />}
           {successMessage && <SuccessModal message={successMessage}/>}
+    <PopUpProvider>
 <AuthProvider>
   <BookProvider>
 <Header />
@@ -67,6 +69,7 @@ function App() {
     </Routes>
     </BookProvider>
     </AuthProvider>
+    </PopUpProvider>
     <Footer />
 
 

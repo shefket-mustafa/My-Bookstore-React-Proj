@@ -2,15 +2,15 @@ import { Link, useNavigate } from "react-router";
 import { useLogin } from "../../utils/utils-auth-api/authApi.js";
 import "./login.css";
 import { useState } from "react";
-import { useErrorMessageHandler, useSuccessMessageHandler } from "../../utils/hooks/util-hooks.js";
 import { useAuthContext } from "../../provider-and-context/AuthContext.jsx";
+import { usePopUpContext } from "../../provider-and-context/PopUpContext.jsx";
 
 export default function Login() {
   const navigate = useNavigate();
   const { login } = useLogin();
   const { loginUserDataHandler } = useAuthContext();
-  const {errorMessageHandler} = useErrorMessageHandler();
-  const {successMessageHandler} = useSuccessMessageHandler();
+  const {errorMessageHandler, successMessageHandler} = usePopUpContext();
+  
 
   const [email, setEmail] = useState('')
 

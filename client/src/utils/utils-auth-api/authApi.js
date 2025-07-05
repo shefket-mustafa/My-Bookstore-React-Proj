@@ -1,6 +1,6 @@
 
 import { useAuthContext } from "../../provider-and-context/AuthContext.jsx";
-import { useErrorMessageHandler } from "../hooks/util-hooks.js";
+import { usePopUpContext } from "../../provider-and-context/PopUpContext.jsx";
 import { get, post } from "../requester.js";
 
 import { useState } from "react";
@@ -34,8 +34,8 @@ export const useRegister = () => {
 export const useLogout = () => {
 
     const {logoutUserHandler, accessToken} = useAuthContext();
-    const {errorMessageHandler} = useErrorMessageHandler()
-    const [isLoggedOut, setIsLoggedOut] = useState(false);
+    const {errorMessageHandler} = usePopUpContext()
+    const [isLoggedOut] = useState(false);
 
         const logout = async () => {
 

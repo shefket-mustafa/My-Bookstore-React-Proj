@@ -6,7 +6,7 @@ import {
 } from "../utils/utils-book-API/bookApi";
 import { useNavigate } from "react-router";
 import { BookContext } from "./BooksContext";
-import { useErrorMessageHandler } from "../utils/hooks/util-hooks";
+import { usePopUpContext } from "./PopUpContext";
 
 export default function BookProvider({ children }) {
   const [bookDetails, setBookDetails] = useState({});
@@ -14,7 +14,7 @@ export default function BookProvider({ children }) {
   const { getBook } = useGetBook();
   const { editBook } = useEditBook();
   const { deleteBook } = useDeleteBook();
-  const { errorMessageHandler } = useErrorMessageHandler();
+  const { errorMessageHandler } = usePopUpContext();
   const navigate = useNavigate();
 
   const detailsHandler = async (bookId) => {

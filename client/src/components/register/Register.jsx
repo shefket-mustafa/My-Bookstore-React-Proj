@@ -3,15 +3,15 @@ import { useRegister } from '../../utils/utils-auth-api/authApi.js';
 import './register.css'
 import { registerValidator } from '../../utils/validators/validator.js';
 import { useState } from 'react';
-import { useErrorMessageHandler, useSuccessMessageHandler } from '../../utils/hooks/util-hooks.js';
 import { useAuthContext } from '../../provider-and-context/AuthContext.jsx';
+import { usePopUpContext } from '../../provider-and-context/PopUpContext.jsx';
 
 export default function Register() {
   const navigate = useNavigate();
   const { register } = useRegister();
   const { registerUserDataHandler } = useAuthContext();
-  const {successMessageHandler} = useSuccessMessageHandler();
-  const {errorMessageHandler} = useErrorMessageHandler()
+  const {successMessageHandler, errorMessageHandler} = usePopUpContext();
+  
   
   const [email, setEmail] = useState('');
 

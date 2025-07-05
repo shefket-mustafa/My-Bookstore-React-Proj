@@ -1,14 +1,13 @@
 import { Link, useNavigate } from "react-router";
 import { useLogout } from "../../utils/utils-auth-api/authApi.js";
-import { useErrorMessageHandler, useSuccessMessageHandler } from "../../utils/hooks/util-hooks.js";
-import ErrorModal from "../error-modal/ErrorModal.jsx";
-import SuccessModal from "../error-modal/success-modal/SuccessModal.jsx";
+
 import { useAuthContext } from "../../provider-and-context/AuthContext.jsx";
+import { usePopUpContext } from "../../provider-and-context/PopUpContext.jsx";
 
 export default function Header() {
 
-  const { isAuthenticated, messageHandler } = useAuthContext();
-  const {successMessageHandler} = useSuccessMessageHandler();
+  const { isAuthenticated } = useAuthContext();
+  const {successMessageHandler} = usePopUpContext();
   const { logout } = useLogout();
   const navigate = useNavigate();
 

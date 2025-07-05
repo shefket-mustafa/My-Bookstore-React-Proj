@@ -1,11 +1,10 @@
 import { useNavigate } from 'react-router';
 import './contact.css'
-
-import { useSuccessMessageHandler } from '../../utils/hooks/util-hooks';
+import { usePopUpContext } from '../../provider-and-context/PopUpContext';
 
 export default function Contact() {
   const navigate = useNavigate();
-  const {successMessageHandler} = useSuccessMessageHandler();
+  const {successMessageHandler} = usePopUpContext();
 
   const submitHandler = () => {
     successMessageHandler("Message sent!")

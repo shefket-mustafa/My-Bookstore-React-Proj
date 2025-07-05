@@ -7,14 +7,14 @@ import {
   useLikeBook,
 } from "../../utils/utils-likes-api/likesApi";
 import { useBookContext } from "../../provider-and-context/BooksContext";
-import { useErrorMessageHandler, useSuccessMessageHandler } from "../../utils/hooks/util-hooks";
 import { useAuthContext } from "../../provider-and-context/AuthContext";
+import { usePopUpContext } from "../../provider-and-context/PopUpContext";
 
 export default function Details() {
   const { bookId } = useParams();
   const navigate = useNavigate();
-  const {errorMessageHandler} = useErrorMessageHandler()
-  const {successMessageHandler} = useSuccessMessageHandler();
+  const {errorMessageHandler, successMessageHandler} = usePopUpContext()
+  
   const { user } = useAuthContext();
 
   const {bookDetails: book, bookLoading, detailsHandler, deleteHandler} = useBookContext()
