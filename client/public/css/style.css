@@ -1144,7 +1144,7 @@ a:focus {
 }
 @media (max-width: 768px) {
   .slider_section {
-    min-height: 100vh;  
+    min-height: 90vh;  
     padding-top: 60px;
     padding-bottom: 60px;
   }
