@@ -1,16 +1,21 @@
 import { Link, useNavigate } from "react-router";
-import { useUserContext } from "../../provider-and-context/UserContext";
 import { useLogout } from "../../utils/utils-auth-api/authApi.js";
+import { useErrorMessageHandler, useSuccessMessageHandler } from "../../utils/hooks/util-hooks.js";
+import ErrorModal from "../error-modal/ErrorModal.jsx";
+import SuccessModal from "../error-modal/success-modal/SuccessModal.jsx";
+import { useAuthContext } from "../../provider-and-context/AuthContext.jsx";
 
 export default function Header() {
-  const { isAuthenticated, messageHandler } = useUserContext();
+
+  const { isAuthenticated, messageHandler } = useAuthContext();
+  const {successMessageHandler} = useSuccessMessageHandler();
   const { logout } = useLogout();
   const navigate = useNavigate();
 
   const logoutHandler = async() => {
     await logout();
     navigate('/')
-    messageHandler('Logged out!')
+    successMessageHandler('Logged out!')
   }
 
   const closeNavbar = () => {
@@ -25,7 +30,7 @@ export default function Header() {
 
   return (
     <>
-      
+       
       <header className="header_section">
         <div className="header_bottom">
           <div className="container-fluid">
@@ -89,7 +94,6 @@ export default function Header() {
           </div>
         </div>
       </header>
-      {/* <!-- end header section --> */}
     </>
   );
 }

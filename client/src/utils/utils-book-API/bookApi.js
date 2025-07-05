@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
-import { del, get, post, put, requester } from "../requester";
-import { useUserContext } from "../../provider-and-context/UserContext";
+import { del, get, post, put } from "../requester";
+import { useAuthContext } from "../../provider-and-context/AuthContext";
+import { useErrorMessageHandler } from "../hooks/util-hooks";
 
 const baseUrl = 'https://my-bookstore-react-proj-5.onrender.com/books';
 
@@ -20,7 +21,7 @@ export const useBooks = () => {
 }
 
 export const useSellBook = () => {
-    const { user } = useUserContext();
+    const { user } = useAuthContext();
   
     const create = async (bookData) => {
       const ownerId = user?.user?._id;
@@ -74,7 +75,7 @@ export const useDeleteBook = () => {
 };
 
 export const useSearchBooks = () => {
-    const {errorHandler} = useUserContext();
+    const {errorMessageHandler} = useErrorMessageHandler();
 
     const search = async (title) => {
 
@@ -83,7 +84,7 @@ export const useSearchBooks = () => {
             const result = await get(`${baseUrl}?title=${encodeURIComponent(title)}`);
             return result;
         }catch(err){
-            errorHandler(err.message)
+            errorMessageHandler(err.message)
         }
     }
 

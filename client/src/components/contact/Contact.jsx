@@ -1,13 +1,14 @@
 import { useNavigate } from 'react-router';
 import './contact.css'
-import { useUserContext } from '../../provider-and-context/UserContext';
+
+import { useSuccessMessageHandler } from '../../utils/hooks/util-hooks';
 
 export default function Contact() {
   const navigate = useNavigate();
-  const {messageHandler} = useUserContext();
+  const {successMessageHandler} = useSuccessMessageHandler();
 
   const submitHandler = () => {
-    messageHandler("Message sent!")
+    successMessageHandler("Message sent!")
     navigate('/')
   }
 

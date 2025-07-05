@@ -1,9 +1,9 @@
 import { Link } from "react-router";
-import { useUserContext } from "../../provider-and-context/UserContext";
+import { useAuthContext } from "../../provider-and-context/AuthContext";
 
 
 export default function Home() {
-  const { isAuthenticated } = useUserContext()
+  const { isAuthenticated } = useAuthContext()
   
   return (
     <div className="hero_area">

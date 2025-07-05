@@ -1,13 +1,15 @@
 import { useNavigate } from 'react-router';
 import { useSellBook } from '../../utils//utils-book-API/bookApi.js';
 import '../sell/sell.css'
-import { useUserContext } from '../../provider-and-context/UserContext';
-import { registerValidator, sellValidator } from '../../utils/validators/validator.js';
+import {  sellValidator } from '../../utils/validators/validator.js';
+import { useErrorMessageHandler, useSuccessMessageHandler } from '../../utils/hooks/util-hooks.js';
 
 export default function Sell() {
 
     const { create } = useSellBook();
-    const { errorHandler, messageHandler} = useUserContext()
+    
+    const {errorMessageHandler} = useErrorMessageHandler();
+    const {successMessageHandler} = useSuccessMessageHandler();
     const navigate = useNavigate();
 
     const sellBookFormAction = async (formData) => {
@@ -20,9 +22,9 @@ export default function Sell() {
         await create(bookData);
 
         navigate('/books/catalog');
-        messageHandler('Book posted!')
+        successMessageHandler('Book posted!')
       }catch(err){
-        errorHandler(err.message)
+        errorMessageHandler(err.message)
       }
       
     }

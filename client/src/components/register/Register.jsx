@@ -1,14 +1,17 @@
 import { Link, useNavigate } from 'react-router';
 import { useRegister } from '../../utils/utils-auth-api/authApi.js';
 import './register.css'
-import { useUserContext } from '../../provider-and-context/UserContext';
 import { registerValidator } from '../../utils/validators/validator.js';
 import { useState } from 'react';
+import { useErrorMessageHandler, useSuccessMessageHandler } from '../../utils/hooks/util-hooks.js';
+import { useAuthContext } from '../../provider-and-context/AuthContext.jsx';
 
 export default function Register() {
   const navigate = useNavigate();
   const { register } = useRegister();
-  const { registerUserDataHandler, errorHandler, messageHandler } = useUserContext();
+  const { registerUserDataHandler } = useAuthContext();
+  const {successMessageHandler} = useSuccessMessageHandler();
+  const {errorMessageHandler} = useErrorMessageHandler()
   
   const [email, setEmail] = useState('');
 
@@ -18,7 +21,7 @@ export default function Register() {
     const {email, password, rePass} = Object.fromEntries(formData);
 
     if(password !== rePass){
-      errorHandler('Passwords do not match')
+      errorMessageHandler('Passwords do not match')
       return;
     };
 
@@ -28,9 +31,9 @@ export default function Register() {
       const response = await register(email, password);
       registerUserDataHandler(response);
       navigate('/');
-      messageHandler('Successful registration!')
+      successMessageHandler('Successful registration!')
     }catch(err){
-      errorHandler(err.message)
+      errorMessageHandler(err.message)
     }
       
 

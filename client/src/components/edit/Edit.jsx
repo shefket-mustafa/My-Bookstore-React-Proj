@@ -1,12 +1,13 @@
-import { useEffect } from "react";
-import { useUserContext } from "../../provider-and-context/UserContext";
+
+
+import { useBookContext } from '../../provider-and-context/BooksContext';
 import './edit.css'
 import { useParams } from "react-router";
 
 
 export default function Edit() {
 
-    const{editHandler,book} = useUserContext();
+    const{editHandler,bookDetails: book} = useBookContext();
     
     const {bookId} = useParams();        
 

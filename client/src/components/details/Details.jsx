@@ -1,5 +1,4 @@
 import { Link, useNavigate, useParams } from "react-router";
-import { useUserContext } from "../../provider-and-context/UserContext";
 import "./details.css";
 import { useEffect, useState } from "react";
 import {
@@ -7,21 +6,18 @@ import {
   useHasUserLikedBook,
   useLikeBook,
 } from "../../utils/utils-likes-api/likesApi";
+import { useBookContext } from "../../provider-and-context/BooksContext";
+import { useErrorMessageHandler, useSuccessMessageHandler } from "../../utils/hooks/util-hooks";
+import { useAuthContext } from "../../provider-and-context/AuthContext";
 
 export default function Details() {
   const { bookId } = useParams();
   const navigate = useNavigate();
+  const {errorMessageHandler} = useErrorMessageHandler()
+  const {successMessageHandler} = useSuccessMessageHandler();
+  const { user } = useAuthContext();
 
-  const {
-    user,
-    book,
-    bookLoading,
-    detailsHandler,
-    deleteHandler,
-    errorHandler,
-    messageHandler,
-  } = useUserContext();
-
+  const {bookDetails: book, bookLoading, detailsHandler, deleteHandler} = useBookContext()
   const [likes, setLikes] = useState(0);
   const [hasLiked, setHasLiked] = useState(false);
   const [likesLoading, setLikesLoading] = useState(true);
@@ -30,7 +26,7 @@ export default function Details() {
   const { likeBook } = useLikeBook();
   const { hasLikedBook } = useHasUserLikedBook();
 
-  const userId = user?.user?._id;
+  const userId = user?._id;
   const accessToken = user?.accessToken;
   const isOwner = userId && book._ownerId === userId;
 
@@ -53,7 +49,7 @@ export default function Details() {
         }
       } catch (err) {
         console.error("Likes error:", err.message);
-        errorHandler(err.message);
+        errorMessageHandler(err.message);
       } finally {
         setLikesLoading(false);
       }
@@ -73,10 +69,10 @@ export default function Details() {
       setHasLiked(true);
       const updatedCount = await getBookLikes(book._id);
       setLikes(updatedCount);
-      messageHandler("Book liked!");
+      successMessageHandler("Book liked!");
     } catch (err) {
       console.error("❌ Like error:", err.message);
-      errorHandler(err.message);
+      errorMessageHandler(err.message);
     }
   };
 
@@ -85,7 +81,7 @@ export default function Details() {
     if (confirmation) {
       await deleteHandler(bookId);
       navigate("/books/catalog");
-      messageHandler("Book deleted!");
+      successMessageHandler("Book deleted!");
     }
   };
 

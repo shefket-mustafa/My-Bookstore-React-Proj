@@ -1,8 +1,8 @@
-import { Link, useParams } from "react-router";
-import { useUserContext } from "../../../provider-and-context/UserContext";
+import { Link } from "react-router";
+import { useBookContext } from "../../../provider-and-context/BooksContext";
 
 export default function CatalogItems({book}) {
-  const {detailsHandler} = useUserContext();
+  const {detailsHandler} = useBookContext();
   
 
     

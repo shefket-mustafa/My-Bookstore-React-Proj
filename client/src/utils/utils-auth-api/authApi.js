@@ -1,7 +1,9 @@
 
+import { useAuthContext } from "../../provider-and-context/AuthContext.jsx";
+import { useErrorMessageHandler } from "../hooks/util-hooks.js";
 import { get, post } from "../requester.js";
-import { useUserContext } from "../../provider-and-context/UserContext.jsx";
-import { useEffect, useState } from "react";
+
+import { useState } from "react";
 
 
 const baseUrl = 'https://my-bookstore-react-proj-5.onrender.com/users';
@@ -31,7 +33,8 @@ export const useRegister = () => {
 
 export const useLogout = () => {
 
-    const {logoutUserHandler, accessToken, errorHandler} = useUserContext();
+    const {logoutUserHandler, accessToken} = useAuthContext();
+    const {errorMessageHandler} = useErrorMessageHandler()
     const [isLoggedOut, setIsLoggedOut] = useState(false);
 
         const logout = async () => {
@@ -49,7 +52,7 @@ export const useLogout = () => {
                 logoutUserHandler();
             }
         catch(err){
-            errorHandler(err.message)
+            errorMessageHandler(err.message)
             
         }
     }

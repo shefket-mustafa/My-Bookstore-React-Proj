@@ -1,8 +1,8 @@
 import { Navigate, Outlet, useNavigate } from "react-router";
-import { useUserContext } from "../../../provider-and-context/UserContext";
+import { useAuthContext } from "../../../provider-and-context/AuthContext";
 
 export default function UserGuard() {
-        const { isAuthenticated } = useUserContext()
+        const { isAuthenticated } = useAuthContext()
         const navigate = useNavigate();
 
         if(!isAuthenticated){

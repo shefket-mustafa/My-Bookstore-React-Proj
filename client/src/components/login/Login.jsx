@@ -1,13 +1,16 @@
 import { Link, useNavigate } from "react-router";
 import { useLogin } from "../../utils/utils-auth-api/authApi.js";
-import { useUserContext } from "../../provider-and-context/UserContext";
 import "./login.css";
 import { useState } from "react";
+import { useErrorMessageHandler, useSuccessMessageHandler } from "../../utils/hooks/util-hooks.js";
+import { useAuthContext } from "../../provider-and-context/AuthContext.jsx";
 
 export default function Login() {
   const navigate = useNavigate();
   const { login } = useLogin();
-  const { loginUserDataHandler, errorHandler, messageHandler } = useUserContext();
+  const { loginUserDataHandler } = useAuthContext();
+  const {errorMessageHandler} = useErrorMessageHandler();
+  const {successMessageHandler} = useSuccessMessageHandler();
 
   const [email, setEmail] = useState('')
 
@@ -18,10 +21,10 @@ export default function Login() {
       const response = await login(email, password);
       loginUserDataHandler(response);
       navigate("/");
-      messageHandler('Successful login!')
+      successMessageHandler('Successful login!')
 
     } catch (err) {
-      errorHandler(err.message);
+      errorMessageHandler(err.message);
     }
   };
 

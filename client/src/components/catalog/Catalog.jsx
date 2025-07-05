@@ -3,13 +3,13 @@
   import CatalogItems from './catalog-item/CatalogItems';
   import { useEffect, useState } from 'react';
   import Pagination from '../pagination/Pagination';
-  import { useUserContext } from '../../provider-and-context/UserContext';
+import { useErrorMessageHandler } from '../../utils/hooks/util-hooks.js';
 
   export default function Catalog() {
 
     const {search} = useSearchBooks();
     const  {books}  = useBooks();
-    const {errorHandler} = useUserContext()
+    const {errorMessageHandler} = useErrorMessageHandler()
 
       const [searchValue, setSearchValue] = useState('');
       const [filteredBooks, setFilteredBooks] = useState([]);
@@ -39,7 +39,7 @@
           setFilteredBooks(result)
 
         }catch(err){
-          errorHandler(err.message)
+          errorMessageHandler(err.message)
         }
       } 
 

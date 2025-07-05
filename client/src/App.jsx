@@ -8,15 +8,19 @@ import Header from "./components/header/Header"
 
 import Home from "./components/home/Home"
 import ErrorPage from "./components/error-page/ErrorPage"
-import Sell from "./components/sell/Sell"
-import Login from "./components/login/Login"
+import Sell from "./components/sell/Sell.jsx"
+import Login from "./components/login/Login.jsx"
 import Register from "./components/register/Register"
-import UserProvider from "./provider-and-context/UserProvider"
 import UserGuard from "./components/guards/user-guard/UserGuard"
 import GuestGuard from "./components/guards/guest-guard/GuestGuard"
 import Details from "./components/details/Details"
 import Edit from "./components/edit/Edit"
 import ManageScrollPosition from "./components/manage-scroll-position/ManageScrollPosition"
+import AuthProvider from "./provider-and-context/AuthProvider"
+import BookProvider from "./provider-and-context/BooksProvider"
+import ErrorModal from "./components/error-modal/ErrorModal.jsx"
+import SuccessModal from "./components/error-modal/success-modal/SuccessModal.jsx"
+import { useErrorMessageHandler, useSuccessMessageHandler } from "./utils/hooks/util-hooks.js"
 
 
 
@@ -24,10 +28,15 @@ import ManageScrollPosition from "./components/manage-scroll-position/ManageScro
 function App() {
   
 
+  const {error} = useErrorMessageHandler()
+  const {successMessage} = useSuccessMessageHandler();
+  
   return (
     <>
-
-<UserProvider>
+{error && <ErrorModal message={error} />}
+          {successMessage && <SuccessModal message={successMessage}/>}
+<AuthProvider>
+  <BookProvider>
 <Header />
 <ManageScrollPosition />
 
@@ -56,7 +65,8 @@ function App() {
 <Route path="*" element={<ErrorPage />} />
 
     </Routes>
-    </UserProvider>
+    </BookProvider>
+    </AuthProvider>
     <Footer />
 
 
