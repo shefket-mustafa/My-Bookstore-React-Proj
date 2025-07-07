@@ -7,6 +7,7 @@ Welcome to **My Bookstore**, a full-featured web application built with **React*
 ## 🛠 Backend Migration Status
 
 ✅ The project has been **successfully migrated** from SoftUni's mock backend to a custom **Express.js + MongoDB** backend.  
+- ⏳ Note: The backend is hosted on Render's free tier, which may cause initial loading delays due to cold starts.
 
 ---
 
