@@ -15,13 +15,13 @@ likeRoutes.get("/", async (req, res) => {
 
     if (userId) {
       result = await pool.query(
-        "SELECT * FROM likes WHERE book_id = $1 AND user_id = $2",
+        "SELECT * FROM user_likes WHERE book_id = $1 AND user_id = $2",
         [bookId, userId]
       );
     } else {
       // All likes for a book
       result = await pool.query(
-        "SELECT * FROM likes WHERE book_id = $1",
+        "SELECT * FROM user_likes WHERE book_id = $1",
         [bookId]
       );
     }
@@ -38,12 +38,13 @@ likeRoutes.get("/count/:bookId", async (req, res) => {
 
   try {
     const result = await pool.query(
-      "SELECT COUNT(*) FROM likes WHERE book_id = $1",
+      "SELECT COUNT(*) FROM user_likes WHERE book_id = $1",
       [bookId]
     );
 
     res.json({ count: Number(result.rows[0].count) });
   } catch (err) {
+    console.error("❌ COUNT LIKES ERROR:", err); 
     res.status(500).json({ message: "Failed to get likes count", error: err.message });
   }
 });
@@ -58,7 +59,7 @@ likeRoutes.post("/", async (req, res) => {
 
   try {
     const result = await pool.query(
-      "INSERT INTO likes (book_id, user_id) VALUES ($1, $2) RETURNING *",
+      "INSERT INTO user_likes (book_id, user_id) VALUES ($1, $2) RETURNING *",
       [bookId, userId]
     );
 

@@ -26,9 +26,10 @@ export default function Details() {
   const { likeBook } = useLikeBook();
   const { hasLikedBook } = useHasUserLikedBook();
 
-  const userId = user?.id;
+  const userId = user?.user?.id;
   const accessToken = user?.accessToken;
-  const isOwner = userId && book._ownerId === userId;
+  const isOwner = false; // ownership not implemented yet
+
 
   useEffect(() => {
     detailsHandler(bookId);

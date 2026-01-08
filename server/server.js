@@ -17,7 +17,7 @@ import './config.js'
 
     app.use('/users', authRoutes)
     app.use('/books', bookRoutes)
-    app.use('/data/likes', likeRoutes);
+    app.use('/likes', likeRoutes);
 
    
         

@@ -1,7 +1,8 @@
 import { get, post, put } from "../requester";
 
 
-const baseUrl = 'https://my-bookstore-react-proj-5.onrender.com/data/likes';
+const deployedUrl = 'https://my-bookstore-react-proj-5.onrender.com/data/likes';
+const baseUrl = 'http://localhost:3030/likes'
 
 
 
