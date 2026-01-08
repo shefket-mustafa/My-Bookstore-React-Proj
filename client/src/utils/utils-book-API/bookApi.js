@@ -3,8 +3,8 @@ import { del, get, post, put } from "../requester";
 import { useAuthContext } from "../../provider-and-context/AuthContext";
 import { usePopUpContext } from "../../provider-and-context/PopUpContext";
 
-const deployedUrl = 'https://my-bookstore-react-proj-5.onrender.com/books';
-const baseUrl = 'http://localhost:3030/books';
+
+const baseUrl = 'https://my-bookstore-react-proj.onrender.com/books';
 
     
 

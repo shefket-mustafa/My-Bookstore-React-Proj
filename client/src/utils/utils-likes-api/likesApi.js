@@ -1,8 +1,9 @@
 import { get, post, put } from "../requester";
 
 
-const deployedUrl = 'https://my-bookstore-react-proj-5.onrender.com/data/likes';
-const baseUrl = 'http://localhost:3030/likes'
+
+const baseUrl = `${import.meta.env.VITE_API_URL}/likes`;
+
 
 
 

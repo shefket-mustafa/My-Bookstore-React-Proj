@@ -3,11 +3,12 @@ import dotenv from "dotenv";
 
 dotenv.config();
 
-const pool = new Pool({ // Creates a pool of reusable connections
-    connectionString: process.env.SUPABASE_URL, // our Supabase Postgres URI
-    ssl: {
-        rejectUnauthorized: false, //Supabase requires SSL, Prevents cert rejection errors
-    }
-})
+const isProduction = process.env.NODE_ENV === "production";
+
+const pool = new Pool({
+  connectionString: process.env.SUPABASE_URL,
+  ssl: isProduction ? { rejectUnauthorized: false } : false,
+});
+
 
 export default pool;

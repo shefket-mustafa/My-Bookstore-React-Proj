@@ -6,8 +6,10 @@ import { get, post } from "../requester.js";
 import { useState } from "react";
 
 
-const deployedUrl = 'https://my-bookstore-react-proj-5.onrender.com/users';
-const baseUrl = `http://localhost:3030/users`
+
+
+const baseUrl = `${import.meta.env.VITE_API_URL}/users`;
+
 
 export const useLogin =  () => {
 
