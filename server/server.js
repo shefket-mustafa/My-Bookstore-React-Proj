@@ -5,12 +5,11 @@ import './config.js'
     import authRoutes from "../server/routes/AuthRoutes.js";
     import bookRoutes from "../server/routes/BooksRoutes.js";
     import likeRoutes from "../server/routes/likesRoutes.js"
-    
+
 
 
     const app = express();
     const port = process.env.PORT || 3030;
-    console.log(process.env);
 
     
 
