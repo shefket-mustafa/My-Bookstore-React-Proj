@@ -1,62 +1,77 @@
 import express from "express";
-import Like from "../models/Like.js";
+import pool from "../postgres.js";
 
 const likeRoutes = express.Router();
 
+likeRoutes.get("/", async (req, res) => {
+  const { bookId, userId } = req.query;
 
-likeRoutes.get('/', async (req, res) => {
-    try {
-      const { where } = req.query;
-      const bookIdMatch = where.match(/bookId="(.*?)"/);
-  
-      if (!bookIdMatch) {
-        return res.status(400).json({ message: "Missing or invalid 'where' query" });
-      }
-  
-      const bookId = bookIdMatch[1];
-  
-      const ownerIdMatch = where.match(/_ownerId="(.*?)"/);
-const query = { bookId };
+  if (!bookId) {
+    return res.status(400).json({ message: "bookId is required" });
+  }
 
-if (ownerIdMatch) {
-  query._ownerId = ownerIdMatch[1];
-}
+  try {
+    let result;
 
-const likes = await Like.find(query);
-      res.json(likes);
-    } catch (err) {
-      res.status(500).json({ message: 'Failed to fetch likes', err });
+    if (userId) {
+      result = await pool.query(
+        "SELECT * FROM user_likes WHERE book_id = $1 AND user_id = $2",
+        [bookId, userId]
+      );
+    } else {
+      // All likes for a book
+      result = await pool.query(
+        "SELECT * FROM user_likes WHERE book_id = $1",
+        [bookId]
+      );
     }
-  });
 
-  likeRoutes.get('/count/:bookId', async (req, res) => {
-    try {
-      const count = await Like.countDocuments({ bookId: req.params.bookId });
-      res.json({ count });
-    } catch (err) {
-      res.status(500).json({ message: 'Failed to get likes count', err });
+    res.json(result.rows);
+  } catch (err) {
+    res.status(500).json({ message: "Failed to fetch likes", error: err.message });
+  }
+});
+
+
+likeRoutes.get("/count/:bookId", async (req, res) => {
+  const { bookId } = req.params;
+
+  try {
+    const result = await pool.query(
+      "SELECT COUNT(*) FROM user_likes WHERE book_id = $1",
+      [bookId]
+    );
+
+    res.json({ count: Number(result.rows[0].count) });
+  } catch (err) {
+    console.error("❌ COUNT LIKES ERROR:", err); 
+    res.status(500).json({ message: "Failed to get likes count", error: err.message });
+  }
+});
+
+
+likeRoutes.post("/", async (req, res) => {
+  const { bookId, userId } = req.body;
+
+  if (!bookId || !userId) {
+    return res.status(400).json({ message: "bookId and userId are required" });
+  }
+
+  try {
+    const result = await pool.query(
+      "INSERT INTO user_likes (book_id, user_id) VALUES ($1, $2) RETURNING *",
+      [bookId, userId]
+    );
+
+    res.status(201).json(result.rows[0]);
+  } catch (err) {
+    // unique (book_id, user_id) violation
+    if (err.code === "23505") {
+      return res.status(409).json({ message: "User already liked this book" });
     }
-  });
 
-  likeRoutes.post('/', async (req, res) => {
-    try {
-      const { bookId, _ownerId } = req.body;
-  
-      if (!bookId || !_ownerId) {
-        return res.status(400).json({ message: 'Missing bookId or _ownerId' });
-      }
-  
-      const existing = await Like.findOne({ bookId, _ownerId });
-      if (existing) {
-        return res.status(409).json({ message: 'User already liked this book' });
-      }
-  
-      const like = await Like.create({ bookId, _ownerId });
-      res.status(201).json(like);
-    } catch (err) {
-      res.status(400).json({ message: 'Failed to create like', err });
-    }
-  });
-  
+    res.status(500).json({ message: "Failed to create like", error: err.message });
+  }
+});
 
-  export default likeRoutes
+export default likeRoutes;

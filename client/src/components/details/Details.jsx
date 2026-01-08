@@ -26,25 +26,26 @@ export default function Details() {
   const { likeBook } = useLikeBook();
   const { hasLikedBook } = useHasUserLikedBook();
 
-  const userId = user?._id;
+  const userId = user?.user?.id;
   const accessToken = user?.accessToken;
-  const isOwner = userId && book._ownerId === userId;
+  const isOwner = false; // ownership not implemented yet
+
 
   useEffect(() => {
     detailsHandler(bookId);
   }, [bookId]);
 
   useEffect(() => {
-    if (!book._id) return;
+    if (!book.id) return;
 
     const fetchLikes = async () => {
       try {
         setLikesLoading(true);
-        const count = await getBookLikes(book._id);
+        const count = await getBookLikes(book.id);
         setLikes(count);
 
         if (userId && userId !== book._ownerId) {
-          const liked = await hasLikedBook(book._id, userId);
+          const liked = await hasLikedBook(book.id, userId);
           setHasLiked(liked);
         }
       } catch (err) {
@@ -56,18 +57,18 @@ export default function Details() {
     };
 
     fetchLikes();
-  }, [book._id, userId]);
+  }, [book.id, userId]);
 
   const likeHandler = async () => {
-    if (!book._id || !userId) {
+    if (!book.id || !userId) {
       console.warn("❌ Cannot like, missing bookId or userId");
       return;
     }
 
     try {
-      await likeBook(book._id, userId);
+      await likeBook(book.id, userId);
       setHasLiked(true);
-      const updatedCount = await getBookLikes(book._id);
+      const updatedCount = await getBookLikes(book.id);
       setLikes(updatedCount);
       successMessageHandler("Book liked!");
     } catch (err) {
@@ -88,7 +89,7 @@ export default function Details() {
   console.log(userId);
   console.log(isOwner);
 
-  if (bookLoading || !book._id) {
+  if (bookLoading || !book.id) {
     return (
       <section className="details-wrapper">
         <div className="details-bg-box"></div>
@@ -107,7 +108,7 @@ export default function Details() {
       <div className="details-card">
         <div className="details-image-box">
           <img
-            src={book.imageUrl}
+            src={book.image_url}
             alt={book.title}
             className="details-image"
           />
@@ -135,7 +136,7 @@ export default function Details() {
 
           {isOwner && (
             <div className="details-buttons">
-              <Link className="edit-link" to={`/books/edit/${book._id}`}>
+              <Link className="edit-link" to={`/books/edit/${book.id}`}>
                 Edit
               </Link>
               <button onClick={deleteAbook} className="delete-link">
