@@ -48,7 +48,7 @@ export default function Sell() {
     
               <label>
                 Image URL:
-                <input type="url" name="imageUrl" required/>
+                <input type="url" name="image_url" required/>
               </label>
     
               <label>

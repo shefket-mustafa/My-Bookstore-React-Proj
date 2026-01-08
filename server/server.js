@@ -1,7 +1,6 @@
 import './config.js'
     import express from "express";
     import cors from "cors";
-    import mongoose from "mongoose";
     import authRoutes from "../server/routes/AuthRoutes.js";
     import bookRoutes from "../server/routes/BooksRoutes.js";
     import likeRoutes from "../server/routes/likesRoutes.js"

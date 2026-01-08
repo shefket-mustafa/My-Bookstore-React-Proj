@@ -31,7 +31,7 @@ export default function Edit() {
     
               <label>
                 Image URL:
-                <input type="url" name="imageUrl" required defaultValue={book.imageUrl}/>
+                <input type="url" name="image_url" required defaultValue={book.imageUrl}/>
               </label>
     
               <label>
