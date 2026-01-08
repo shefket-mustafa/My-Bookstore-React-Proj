@@ -1,13 +1,16 @@
 # 📚 My Bookstore React Project
 
-Welcome to **My Bookstore**, a full-featured web application built with **React**, **JavaScript**, **Express**, and **MongoDB**. Users can browse, post, edit, delete, and search books for sale, with authentication and like functionality built in.
+Welcome to **My Bookstore**, a full-featured web application built with **React**, **JavaScript**, **Express**, and **PostgreSQL(Supabase)**. Users can browse, post, edit, delete, and search books for sale, with authentication and like functionality built in.
 
 ---
 
 ## 🛠 Backend Migration Status
 
 
-- ⏳CURRENTLY MIGRATING BACK END FROM MONGODB TO POSGRESQL - PLEASE BE PATIENT
+-⚠️ Backend migration in progress
+The project is currently being migrated from MongoDB (Mongoose) to PostgreSQL using Supabase.
+Core logic (authentication, books, likes) has been successfully migrated.
+Remaining work includes Edit, Delete, and Search refinements.
 
 ---
 
@@ -31,7 +34,7 @@ Welcome to **My Bookstore**, a full-featured web application built with **React*
 - **Custom CSS + Template Styling**
 - **Vite (Client Dev Server)**
 - **Express.js (Backend Server)**
-- **MongoDB + Mongoose (Database)**
+- **PostgreSQL(Supabase) + SQL (Database)**
 - **JWT (Authentication Tokens)**
 - **bcrypt.js (Password Hashing)**
 - **localStorage (Frontend State Persistence)**
@@ -54,7 +57,7 @@ My-Bookstore-React-Proj/
 Check out Moviefy live here: [my-bookstore-react-proj.vercel.app](https://my-bookstore-react-proj.vercel.app)
 
 - 🖥 **Frontend (Vercel)**: [my-bookstore-react-proj.vercel.app](https://my-bookstore-react-proj.vercel.app)
-- ⚙️ **Backend (Render)**: [my-bookstore-react-proj-5.onrender.com](https://my-bookstore-react-proj-5.onrender.com)
+- ⚙️ **Backend (Render)**: [my-bookstore-react-proj-5.onrender.com](https://my-bookstore-react-proj.onrender.com)
 
 ---
 
@@ -98,10 +101,10 @@ The backend should be running at: `http://localhost:3030`
 - The UI is based on a ready-made HTML/CSS template, heavily reworked with custom styling.
 - You need to be logged in to create, edit, delete, or like books.
 - You can use the following login credentials for testing:
-  - **Email**: admin@abv.bg
-  - **Password**: 1234 
+  - **Email**: test@abv.bg
+  - **Password**: 123456
 - You need to be logged in to create, edit, delete, or like books.
-- The backend is custom made with Express + MongoDB
+- The backend is custom made with PostgreSQL + SQL
 
 ---
 
