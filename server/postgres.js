@@ -4,7 +4,7 @@ import dotenv from "dotenv";
 dotenv.config();
 
 const pool = new Pool({ // Creates a pool of reusable connections
-    connectionString: process.env.SUPA_URL, // our Supabase Postgres URI
+    connectionString: process.env.SUPABASE_URL, // our Supabase Postgres URI
     ssl: {
         rejectUnauthorized: false, //Supabase requires SSL, Prevents cert rejection errors
     }

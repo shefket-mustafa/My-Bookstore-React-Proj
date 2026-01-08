@@ -9,13 +9,13 @@ export default function CatalogItems({book}) {
     
   
   return (
-    <div key={book._id} className="book-card">
-    <img src={book.imageUrl} alt={book.imageAlt} />
+    <div key={book.id} className="book-card">
+    <img src={book.image_url} alt={book.imageAlt} />
     <h3>{book.title}</h3>
     <p>by {book.author}</p>
     <p className="price">${book.price}</p>
 
-  <Link to={`/books/${book._id}`} className="details-button">Details</Link> 
+  <Link to={`/books/${book.id}`} className="details-button">Details</Link> 
     
     {/* <>
      <button className="buy-button">Edit</button>

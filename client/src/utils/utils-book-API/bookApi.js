@@ -3,7 +3,8 @@ import { del, get, post, put } from "../requester";
 import { useAuthContext } from "../../provider-and-context/AuthContext";
 import { usePopUpContext } from "../../provider-and-context/PopUpContext";
 
-const baseUrl = 'https://my-bookstore-react-proj-5.onrender.com/books';
+const deployedUrl = 'https://my-bookstore-react-proj-5.onrender.com/books';
+const baseUrl = 'http://localhost:3030/books';
 
     
 
@@ -21,24 +22,13 @@ export const useBooks = () => {
 }
 
 export const useSellBook = () => {
-    const { user } = useAuthContext();
-  
-    const create = async (bookData) => {
-      const ownerId = user?.user?._id;
-  
-      if (!ownerId) throw new Error("User not authenticated");
-  
-      const completeData = {
-        ...bookData,
-        _ownerId: ownerId, 
-      };
-  
-      const result = await post(baseUrl, completeData);
-      return result;
-    };
-  
-    return { create };
+  const create = async (bookData) => {
+    const result = await post(baseUrl, bookData);
+    return result;
   };
+
+  return { create };
+};
   
 
 //Get one book

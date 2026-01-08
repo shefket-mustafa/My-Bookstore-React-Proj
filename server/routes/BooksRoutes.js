@@ -41,10 +41,10 @@ bookRoutes.get('/:id', async (req, res) => {
 });
 
 bookRoutes.post('/', async (req, res) => {
-  const {title, author, image_url, price} = req.body
+  const {title, author, image_url, price, comment} = req.body
   try {
     const book = await pool.query(
-      "INSERT INTO books(title, author, image_url, price) VALUES($1,$2,$3,$4) RETURNING *", [title, author, image_url, price]
+      "INSERT INTO books(title, author, image_url, price, comment) VALUES($1,$2,$3,$4, $5) RETURNING *", [title, author, image_url, price, comment]
     )
     res.status(201).json(book.rows[0]);
   } catch (err) {

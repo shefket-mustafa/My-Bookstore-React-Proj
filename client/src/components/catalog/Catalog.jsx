@@ -65,7 +65,7 @@ import { usePopUpContext } from '../../provider-and-context/PopUpContext.jsx';
             <button onClick={onSearch} className='search-btn'>Search</button>
           </div>
           <div className="book-grid">
-    {paginatedBooks.length > 0 ? ( paginatedBooks.map((book) => ( <CatalogItems key={book._id} book={book} />))) 
+    {paginatedBooks.length > 0 ? ( paginatedBooks.map((book) => ( <CatalogItems key={book.id} book={book} />))) 
     : (
       <>
         {searchPerformed ? (

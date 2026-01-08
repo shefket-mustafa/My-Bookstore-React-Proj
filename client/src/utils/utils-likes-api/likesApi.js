@@ -16,8 +16,7 @@ export function useGetBookLikes() {
 
   export function useHasUserLikedBook() {
     const hasLikedBook = async (bookId, userId) => {
-        const query = encodeURIComponent(`bookId="${bookId}" AND _ownerId="${userId}"`);
-        const url = `${baseUrl}?where=${query}`;
+        const url = `${baseUrl}?bookId=${bookId}&userId=${userId}`;
         const result = await get(url);
         return result.length > 0;
     };
@@ -31,7 +30,7 @@ export function useLikeBook() {
     const likeBook = async (bookId, userId) => {
       return await post(baseUrl, {
         bookId,
-        _ownerId: userId, 
+        userId, 
       });
     };
   

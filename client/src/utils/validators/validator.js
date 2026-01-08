@@ -1,7 +1,7 @@
 
 
 export const sellValidator = (bookData) => {
-    if (!bookData.title.trim() || !bookData.author.trim() || !bookData.imageUrl.trim() || !bookData.comment.trim()) {
+    if (!bookData.title.trim() || !bookData.author.trim() || !bookData.image_url.trim() || !bookData.comment.trim()) {
       throw new Error("All fields must be filled in.");
     }
   
@@ -9,7 +9,7 @@ export const sellValidator = (bookData) => {
       throw new Error("Title and author must be at least 2 characters.");
     }
   
-    if (!/^https?:\/\//.test(bookData.imageUrl)) {
+    if (!/^https?:\/\//.test(bookData.image_url)) {
       throw new Error("Image URL must start with http:// or https://");
     }
   
