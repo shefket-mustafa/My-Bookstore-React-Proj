@@ -20,17 +20,9 @@ import './config.js'
     app.use('/books', bookRoutes)
     app.use('/data/likes', likeRoutes);
 
-    mongoose.connect(process.env.MONGO_URI)
-    .then(() => {
-        console.log('Connected to MongoDB Atlas');
+   
         
         app.listen(port, () => {
-        console.log(`Server is running on http://localhost:${port}`);
-        })
-    })
-    .catch(err => {
-
-        console.error("❌ MongoDB connection error:", err.message);
-    })
-    
+        console.log(`Server is running on http://localhost:${port}`)});
+       
 
