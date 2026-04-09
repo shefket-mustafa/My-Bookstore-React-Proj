@@ -13,14 +13,21 @@ import { usePopUpContext } from "../../provider-and-context/PopUpContext";
 export default function Details() {
   const { bookId } = useParams();
   const navigate = useNavigate();
-  const {errorMessageHandler, successMessageHandler} = usePopUpContext()
-  
+  const { errorMessageHandler, successMessageHandler } = usePopUpContext();
+
   const { user } = useAuthContext();
 
-  const {bookDetails: book, bookLoading, detailsHandler, deleteHandler} = useBookContext()
+  const {
+    bookDetails: book,
+    bookLoading,
+    detailsHandler,
+    deleteHandler,
+  } = useBookContext();
   const [likes, setLikes] = useState(0);
   const [hasLiked, setHasLiked] = useState(false);
   const [likesLoading, setLikesLoading] = useState(true);
+  const [isDeleting, setIsDeleting] = useState(false);
+  const [isLiking, setIsLiking] = useState(false);
 
   const { getBookLikes } = useGetBookLikes();
   const { likeBook } = useLikeBook();
@@ -29,7 +36,6 @@ export default function Details() {
   const userId = user?.user?.id;
   const accessToken = user?.accessToken;
   const isOwner = false; // ownership not implemented yet
-
 
   useEffect(() => {
     detailsHandler(bookId);
@@ -66,6 +72,7 @@ export default function Details() {
     }
 
     try {
+      setIsLiking(true);
       await likeBook(book.id, userId);
       setHasLiked(true);
       const updatedCount = await getBookLikes(book.id);
@@ -74,15 +81,24 @@ export default function Details() {
     } catch (err) {
       console.error("❌ Like error:", err.message);
       errorMessageHandler(err.message);
+    } finally {
+      setIsLiking(false);
     }
   };
 
   const deleteAbook = async () => {
     const confirmation = confirm("Are you sure you want to delete this book?");
     if (confirmation) {
-      await deleteHandler(bookId);
-      navigate("/books/catalog");
-      successMessageHandler("Book deleted!");
+      try {
+        setIsDeleting(true);
+        await deleteHandler(bookId);
+        navigate("/books/catalog");
+        successMessageHandler("Book deleted!");
+      } catch (err) {
+        errorMessageHandler(err.message);
+      } finally {
+        setIsDeleting(false);
+      }
     }
   };
 
@@ -129,26 +145,35 @@ export default function Details() {
           <p className="details-price">
             <strong style={{ color: "#2c7873" }}>Price: </strong>${book.price}
           </p>
-          <p className="details-description">
-            <strong style={{ color: "#2c7873" }}>Comment:</strong>
-          </p>
-          <p>{book.comment}</p>
+
+          <div className="details-description-section">
+            <h3 className="details-section-title">About This Book</h3>
+            <p className="details-description">{book.comment}</p>
+          </div>
 
           {isOwner && (
             <div className="details-buttons">
               <Link className="edit-link" to={`/books/edit/${book.id}`}>
                 Edit
               </Link>
-              <button onClick={deleteAbook} className="delete-link">
-                Delete
+              <button
+                onClick={deleteAbook}
+                className="delete-link"
+                disabled={isDeleting}
+              >
+                {isDeleting ? "Deleting..." : "Delete"}
               </button>
             </div>
           )}
 
           {accessToken && userId && !isOwner && !hasLiked && !likesLoading && (
             <div className="link-button">
-              <button onClick={likeHandler} className="like-link">
-                Like
+              <button
+                onClick={likeHandler}
+                className="like-link"
+                disabled={isLiking}
+              >
+                {isLiking ? "Liking..." : "Like"}
               </button>
             </div>
           )}
