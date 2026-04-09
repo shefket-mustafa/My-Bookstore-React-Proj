@@ -3,13 +3,24 @@
 import { useBookContext } from '../../provider-and-context/BooksContext';
 import './edit.css'
 import { useParams } from "react-router";
+import { useState } from 'react';
 
 
 export default function Edit() {
 
     const{editHandler,bookDetails: book} = useBookContext();
+    const [isLoading, setIsLoading] = useState(false);
     
     const {bookId} = useParams();        
+
+    const handleEdit = async (formData) => {
+      try {
+        setIsLoading(true);
+        await editHandler(formData, bookId);
+      } finally {
+        setIsLoading(false);
+      }
+    };
 
 
   return (
@@ -18,7 +29,7 @@ export default function Edit() {
             <div className='edit-bg-box' ></div>
           <div className="edit-form-box">
           <h3>Edit your book</h3>
-            <form action={(formData)=>editHandler(formData,bookId)} className="edit-form">
+            <form action={handleEdit} className="edit-form">
               <label>
                 Title:
                 <input type="text" name="title" maxLength="20" required defaultValue={book.title}/>
@@ -53,7 +64,9 @@ export default function Edit() {
               </label>
 
     
-              <button className="edit-btn" type="submit">Edit Book</button>
+              <button className="edit-btn" type="submit" disabled={isLoading}>
+                {isLoading ? 'Saving...' : 'Edit Book'}
+              </button>
             </form>
           </div>
         </section>
