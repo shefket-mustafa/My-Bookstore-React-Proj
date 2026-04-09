@@ -12,8 +12,8 @@ export default function Register() {
   const { registerUserDataHandler } = useAuthContext();
   const {successMessageHandler, errorMessageHandler} = usePopUpContext();
   
-  
   const [email, setEmail] = useState('');
+  const [isLoading, setIsLoading] = useState(false);
 
 
   const registerHandler = async (formData) => {
@@ -27,6 +27,7 @@ export default function Register() {
 
     
     try{
+      setIsLoading(true);
       registerValidator(email,password)
       const response = await register(email, password);
       registerUserDataHandler(response);
@@ -34,6 +35,8 @@ export default function Register() {
       successMessageHandler('Successful registration!')
     }catch(err){
       errorMessageHandler(err.message)
+    } finally {
+      setIsLoading(false);
     }
       
 
@@ -83,7 +86,9 @@ export default function Register() {
               />
             </label>
 
-            <button type="submit">Register In</button>
+            <button type="submit" disabled={isLoading}>
+              {isLoading ? 'Registering...' : 'Register'}
+            </button>
             <p className="redirect-login"> Already have an account? <Link className='log-a' to="/login">Log in</Link></p>
           </form>
         </div>

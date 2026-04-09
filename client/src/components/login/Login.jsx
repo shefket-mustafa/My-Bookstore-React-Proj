@@ -9,22 +9,24 @@ export default function Login() {
   const navigate = useNavigate();
   const { login } = useLogin();
   const { loginUserDataHandler } = useAuthContext();
-  const {errorMessageHandler, successMessageHandler} = usePopUpContext();
-  
+  const { errorMessageHandler, successMessageHandler } = usePopUpContext();
 
-  const [email, setEmail] = useState('')
+  const [email, setEmail] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
 
   const loginHandler = async (formData) => {
     const { email, password } = Object.fromEntries(formData);
 
     try {
+      setIsLoading(true);
       const response = await login(email, password);
       loginUserDataHandler(response);
       navigate("/");
-      successMessageHandler('Successful login!')
-
+      successMessageHandler("Successful login!");
     } catch (err) {
       errorMessageHandler(err.message);
+    } finally {
+      setIsLoading(false);
     }
   };
 
@@ -35,10 +37,22 @@ export default function Login() {
       <div className="login-centered-box">
         <div className="login-form-box">
           <h3>Login</h3>
-          <form action={loginHandler} className="login-form">
+          <form
+            onSubmit={(e) => {
+              e.preventDefault();
+              loginHandler(new FormData(e.target));
+            }}
+            className="login-form"
+          >
             <label>
               Email:
-              <input type="email" name="email" defaultValue={email} onChange={(e) => setEmail(e.target.value)} required />
+              <input
+                type="email"
+                name="email"
+                defaultValue={email}
+                onChange={(e) => setEmail(e.target.value)}
+                required
+              />
             </label>
 
             <label>
@@ -46,7 +60,9 @@ export default function Login() {
               <input type="password" name="password" required />
             </label>
 
-            <button type="submit">Log In</button>
+            <button type="submit" disabled={isLoading}>
+              {isLoading ? "Logging in..." : "Log In"}
+            </button>
             <p className="redirect-register">
               {" "}
               Don't have an account?{" "}
